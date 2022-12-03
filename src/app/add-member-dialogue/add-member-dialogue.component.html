@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add Staff Appraiser</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Appraiser License Level</mat-label>
+    <mat-select placeholder="License">
+      <mat-option value="Trainee">Trainee</mat-option>
+      <mat-option value="Licensed">Licensed</mat-option>
+      <mat-option value="Certified Residential"
+        >Certified Residential</mat-option
+      >
+      <mat-option value="Certified General">Certified General</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+</div>
