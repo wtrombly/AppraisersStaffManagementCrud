@@ -1,7 +1,8 @@
 import { AddMemberDialogueComponent } from './add-member-dialogue/add-member-dialogue.component';
 import { Component } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { AppraiserProfiles } from './models/appraiser-profile';
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { AppraiserProfiles } from './models/appraiser-profile';
 export class AppComponent {
   title = 'AppraisersStaffManagementCrud';
 
-  public AppraiserProfile = AppraiserProfiles;
+
 
   constructor(private dialog: MatDialog) {
   }
