@@ -136,14 +136,15 @@ export class AddMemberDialogueComponent implements OnInit {
   addAppraiser() {
     if (!this.editData) {
       if (this.staffAppraiserForm.valid) {
-        this.api.postAppraiser(this.staffAppraiserForm.value).subscribe({
+        this.api.postAppraiser(this.staffAppraiserForm.value)
+        .subscribe({
           next: (res) => {
-            alert('Product added successfully');
+            alert("Product added successfully");
             this.staffAppraiserForm.reset();
             this.dialofRef.close('save');
           },
           error: () => {
-            alert('Error while adding appraiser!!');
+            alert("Error while adding appraiser!!");
           },
         });
       }
@@ -153,16 +154,15 @@ export class AddMemberDialogueComponent implements OnInit {
   }
 
   updateAppraiser() {
-    this.api
-      .putAppraiser(this.staffAppraiserForm.value, this.editData.id)
+    this.api.putAppraiser(this.staffAppraiserForm.value, this.editData.id)
       .subscribe({
-        next: (res) => {
-          alert('Profile updated successfully');
+        next:(res)=>{
+          alert("Profile updated successfully");
           this.staffAppraiserForm.reset;
           this.dialofRef.close('update');
         },
         error: () => {
-          alert('Error while updating the profile');
+          alert("Error while updating the profile");
         },
       });
   }
