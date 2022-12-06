@@ -1,6 +1,47 @@
 {
   "appraiserList": [
-
+    {
+      "firstName": "will",
+      "lastName": "trombly",
+      "streetNumber": "13216",
+      "streetName": "crumbridge",
+      "state": {
+        "id": 33,
+        "name": "Texas",
+        "abbreviation": "TX"
+      },
+      "zipCode": "77007",
+      "licenseLevel": "Certified Residential",
+      "licenseNumber": "32165464",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2021-01-01T06:00:00.000Z",
+      "stateCoverage": [
+        "Arkansas"
+      ],
+      "id": 1
+    },
+    {
+      "firstName": "sugar ",
+      "lastName": "poppy",
+      "streetNumber": "1234",
+      "streetName": "st arnolds st",
+      "state": {
+        "id": 33,
+        "name": "Texas",
+        "abbreviation": "TX"
+      },
+      "zipCode": "+77035",
+      "licenseLevel": "Certified Residential",
+      "licenseNumber": "sdfsdfg",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2021-01-01T06:00:00.000Z",
+      "stateCoverage": [
+        "Arkansas"
+      ],
+      "id": 2
+    }
   ],
   "comments": [
     {
