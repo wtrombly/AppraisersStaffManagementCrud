@@ -1,6 +1,7 @@
 import { AddMemberDialogueComponent } from './add-member-dialogue/add-member-dialogue.component';
 import { Component } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { ApiService } from './services/api.service';
 
 
 
@@ -14,7 +15,7 @@ export class AppComponent {
 
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private api : ApiService) {
   }
   openDialog() {
     this.dialog.open(AddMemberDialogueComponent, {

@@ -31,7 +31,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Zip <Code></Code></mat-label>
+      <mat-label>Zip Code</mat-label>
       <input matInput placeholder="Zip Code" />
     </mat-form-field>
 
@@ -88,4 +88,9 @@
       </mat-select>
     </mat-form-field>
   </div>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+  <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addAppraiser()">{{actionBtn}}</button>
 </div>
