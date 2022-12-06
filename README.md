@@ -1,4 +1,5 @@
 # AppraisersStaffManagementCrud
+This project is ongoing as of 12/5/2022.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
