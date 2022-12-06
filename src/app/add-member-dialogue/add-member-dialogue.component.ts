@@ -79,8 +79,7 @@ export class AddMemberDialogueComponent implements OnInit {
     private formBuilder: FormBuilder,
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialofRef: MatDialogRef<AddMemberDialogueComponent>
-  ) {}
+    private dialofRef: MatDialogRef<AddMemberDialogueComponent>){}
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({

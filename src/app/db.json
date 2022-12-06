@@ -1,6 +1,50 @@
 {
   "appraiserList": [
-
+    {
+      "firstName": "Will",
+      "lastName": "Trombly",
+      "streetNumber": "0001",
+      "streetName": "Dawnridge",
+      "state": {
+        "id": 33,
+        "name": "Texas",
+        "abbreviation": "TX"
+      },
+      "zipCode": "77035",
+      "licenseLevel": "Certified Residential",
+      "licenseNumber": "1341011",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2021-01-01T06:00:00.000Z",
+      "stateCoverage": [
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware"
+      ],
+      "id": 1
+    },
+    {
+      "firstName": "Sam",
+      "lastName": "I Am",
+      "streetNumber": "5523",
+      "streetName": "hucklebuckle Ln",
+      "state": {
+        "id": 8,
+        "name": "Guam",
+        "abbreviation": "GU"
+      },
+      "zipCode": "11100",
+      "licenseLevel": "Certified General",
+      "licenseNumber": "0000000",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2021-01-01T06:00:00.000Z",
+      "stateCoverage": [
+        "American Samoa"
+      ],
+      "id": 2
+    }
   ],
   "comments": [
     {
