@@ -27,9 +27,9 @@
       "streetNumber": "1234",
       "streetName": "st arnolds st",
       "state": {
-        "id": 33,
-        "name": "Texas",
-        "abbreviation": "TX"
+        "id": 26,
+        "name": "New York",
+        "abbreviation": "NY"
       },
       "zipCode": "+77035",
       "licenseLevel": "Certified Residential",
@@ -38,7 +38,12 @@
       "VA": "FALSE",
       "dataOfPlacement": "2021-01-01T06:00:00.000Z",
       "stateCoverage": [
-        "Arkansas"
+        "Arkansas",
+        "Minnesota",
+        "Minor Outlying Islands",
+        "Mississippi",
+        "Missouri",
+        "Montana"
       ],
       "id": 2
     }
