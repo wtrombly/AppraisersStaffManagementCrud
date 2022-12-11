@@ -19,11 +19,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { AssignOrderComponent } from './assign-order/assign-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddMemberDialogueComponent
+    AddMemberDialogueComponent,
+    AssignOrderComponent
   ],
   imports: [
     BrowserModule,
