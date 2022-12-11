@@ -80,6 +80,97 @@
         "Kentucky"
       ],
       "id": 3
+    },
+    {
+      "firstName": "Will",
+      "lastName": "Trombly",
+      "streetNumber": "1234",
+      "streetName": "Smith St",
+      "state": {
+        "id": 2,
+        "name": "California",
+        "abbreviation": "CA"
+      },
+      "zipCode": "77001",
+      "licenseLevel": "Certified Residential",
+      "licenseNumber": "1348967",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2020-12-01T06:00:00.000Z",
+      "stateCoverage": [
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado"
+      ],
+      "id": 4
+    },
+    {
+      "firstName": "Werner",
+      "lastName": "Hollington",
+      "streetNumber": "7",
+      "streetName": "Toban",
+      "state": {
+        "id": 11,
+        "name": "Idaho",
+        "abbreviation": "ID"
+      },
+      "zipCode": "12345",
+      "licenseLevel": "Certified Residential",
+      "licenseNumber": "480056523",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "2000-01-01T06:00:00.000Z",
+      "stateCoverage": [
+        "Maine",
+        "Michigan"
+      ],
+      "id": 5
+    },
+    {
+      "firstName": "Erick",
+      "lastName": "Worner",
+      "streetNumber": "2948",
+      "streetName": "Scott Way",
+      "state": {
+        "id": 8,
+        "name": "Georgia",
+        "abbreviation": "GA"
+      },
+      "zipCode": "45687",
+      "licenseLevel": "Certified General",
+      "licenseNumber": "825325439",
+      "FHA": "TRUE",
+      "VA": "TRUE",
+      "dataOfPlacement": "2010-01-02T06:00:00.000Z",
+      "stateCoverage": [
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+      ],
+      "id": 6
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Vila",
+      "streetNumber": "5542",
+      "streetName": "bleeker ave",
+      "city": "richmond",
+      "state": {
+        "id": 35,
+        "name": "Virginia",
+        "abbreviation": "VA"
+      },
+      "zipCode": "12458",
+      "licenseLevel": "Trainee",
+      "licenseNumber": "4567214",
+      "FHA": "FALSE",
+      "VA": "FALSE",
+      "dataOfPlacement": "1900-01-18T06:00:00.000Z",
+      "stateCoverage": [
+        "Vermont"
+      ],
+      "id": 7
     }
   ],
   "comments": [

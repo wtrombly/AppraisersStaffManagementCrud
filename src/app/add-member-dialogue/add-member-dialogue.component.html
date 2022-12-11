@@ -21,6 +21,11 @@
     <input formControlName="streetName" matInput placeholder="Street Name" />
   </mat-form-field>
 
+  <mat-form-field appearance="outline">
+    <mat-label>City</mat-label>
+    <input formControlName="city" matInput placeholder="City" />
+  </mat-form-field>
+
   <div class="outline">
     <mat-form-field appearance="fill">
       <mat-label>State</mat-label>
@@ -75,7 +80,7 @@
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
         matIconSuffix
-        [for]="picker"  
+        [for]="picker"
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

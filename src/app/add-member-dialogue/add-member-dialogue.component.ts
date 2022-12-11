@@ -87,6 +87,7 @@ export class AddMemberDialogueComponent implements OnInit {
       lastName: ['', Validators.required],
       streetNumber: ['', Validators.required],
       streetName: ['', Validators.required],
+      city: ['', Validators.required],
       state: ['', Validators.required],
       zipCode: ['', Validators.required],
       licenseLevel: ['', Validators.required],
@@ -112,6 +113,7 @@ export class AddMemberDialogueComponent implements OnInit {
         this.editData.streetName
       );
       this.staffAppraiserForm.controls['state'].setValue(this.editData.state);
+      this.staffAppraiserForm.controls['city'].setValue(this.editData.city);
       this.staffAppraiserForm.controls['zipCode'].setValue(
         this.editData.zipCode
       );
@@ -138,7 +140,7 @@ export class AddMemberDialogueComponent implements OnInit {
         this.api.postAppraiser(this.staffAppraiserForm.value)
         .subscribe({
           next: (res) => {
-            alert("Product added successfully");
+            alert("Appraiser added successfully");
             this.staffAppraiserForm.reset();
             this.dialofRef.close('save');
           },
