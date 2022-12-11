@@ -1,3 +1,4 @@
+import { AssignOrderComponent } from './assign-order/assign-order.component';
 import { AddMemberDialogueComponent } from './add-member-dialogue/add-member-dialogue.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
@@ -30,8 +31,18 @@ export class AppComponent implements OnInit{
     this.getAllAppraisers();
   }
 
-  openDialog() {
+  openAppraiserDialog() {
     this.dialog.open(AddMemberDialogueComponent, {
+      width:'30%'
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getAllAppraisers();
+      }
+    })
+  };
+
+  openOrdersDialog() {
+    this.dialog.open(AssignOrderComponent, {
       width:'30%'
     }).afterClosed().subscribe(val=>{
       if(val === 'save'){

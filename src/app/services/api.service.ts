@@ -26,6 +26,22 @@ export class ApiService {
     return this.http.delete<any>("http://localhost:3000/appraiserList/"+id);
   }
 
+  postOrder(data : any) {
+    return this.http.post<any>("http://localhost:3000/orders/",data);
+   }
+
+   getOrder() {
+    return this.http.get<any>("http://localhost:3000/orders/");
+  }
+
+  putOrder(data : any, id : number){
+    return this.http.put<any>("http://localhost:3000/orders/"+id, data);
+  }
+
+  deleteOrder(id : number) {
+    return this.http.delete<any>("http://localhost:3000/orders/"+id);
+  }
+
 
 
 }

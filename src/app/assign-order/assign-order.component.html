@@ -1,1 +1,79 @@
-<p>assign-order works!</p>
+<h1 mat-dialog-title>Add Staff Appraiser</h1>
+
+<form [formGroup]="orderForm">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Order Number</mat-label>
+    <input formControlName="orderNumber" matInput placeholder="Order Number" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Street Number</mat-label>
+    <input
+      formControlName="streetNumber" matInput placeholder="Street Number"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Street Name</mat-label>
+    <input formControlName="streetName" matInput placeholder="Street Name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>City</mat-label>
+    <input formControlName="city" matInput placeholder="City" />
+  </mat-form-field>
+
+  <div class="outline">
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <mat-select formControlName="state" placeholder="Select State">
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{ state.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Zip Code</mat-label>
+      <input formControlName="zipCode" matInput placeholder="Zip Code" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Client Name</mat-label>
+      <input formControlName="clientName" matInput placeholder="Client Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Order Fee</mat-label>
+      <input formControlName="orderFee" matInput placeholder="Order Fee" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Order Due Date</mat-label>
+      <input formControlName="dueDate" matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea formControlName="notes" matInput placeholder="Client notes"></textarea>
+    </mat-form-field>
+  </div>
+</form>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addOrder()"
+  >
+    {{ actionBtn }}
+  </button>
+</div>

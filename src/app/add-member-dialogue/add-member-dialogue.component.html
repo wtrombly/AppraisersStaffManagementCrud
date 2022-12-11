@@ -1,119 +1,137 @@
 <h1 mat-dialog-title>Add Staff Appraiser</h1>
 <div mat-dialog-content>
   <form [formGroup]="staffAppraiserForm">
-  <mat-form-field appearance="outline">
-    <mat-label>First Name</mat-label>
-    <input formControlName="firstName" matInput placeholder="First Name" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Last Name</mat-label>
-    <input formControlName="lastName" matInput placeholder="Last Name" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Street Number</mat-label>
-    <input formControlName="streetNumber" matInput placeholder="Street Number" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Street Name</mat-label>
-    <input formControlName="streetName" matInput placeholder="Street Name" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>City</mat-label>
-    <input formControlName="city" matInput placeholder="City" />
-  </mat-form-field>
-
-  <div class="outline">
-    <mat-form-field appearance="fill">
-      <mat-label>State</mat-label>
-      <mat-select formControlName="state" placeholder="Select State">
-        <mat-option *ngFor="let state of states" [value]="state">
-          {{ state.name }}
-        </mat-option>
-      </mat-select>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input formControlName="firstName" matInput placeholder="First Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Zip Code</mat-label>
-      <input formControlName="zipCode" matInput placeholder="Zip Code" />
+      <mat-label>Last Name</mat-label>
+      <input formControlName="lastName" matInput placeholder="Last Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Appraiser License Level</mat-label>
-      <mat-select formControlName="licenseLevel" placeholder="License">
-        <mat-option value="Trainee">Trainee</mat-option>
-        <mat-option value="Licensed">Licensed</mat-option>
-        <mat-option value="Certified Residential"
-          >Certified Residential</mat-option
+      <mat-label>Street Number</mat-label>
+      <input
+        formControlName="streetNumber"
+        matInput
+        placeholder="Street Number"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Street Name</mat-label>
+      <input formControlName="streetName" matInput placeholder="Street Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input formControlName="city" matInput placeholder="City" />
+    </mat-form-field>
+
+    <div class="outline">
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state" placeholder="Select State">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Zip Code</mat-label>
+        <input formControlName="zipCode" matInput placeholder="Zip Code" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Appraiser License Level</mat-label>
+        <mat-select formControlName="licenseLevel" placeholder="License">
+          <mat-option value="Trainee">Trainee</mat-option>
+          <mat-option value="Licensed">Licensed</mat-option>
+          <mat-option value="Certified Residential"
+            >Certified Residential</mat-option
+          >
+          <mat-option value="Certified General">Certified General</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>License Number </mat-label>
+        <input
+          formControlName="licenseNumber"
+          matInput
+          placeholder="License Number"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>FHA</mat-label>
+        <mat-select formControlName="FHA" value="FALSE" placeholder="License">
+          <mat-option value="TRUE">Appraiser is FHA qualified</mat-option>
+          <mat-option value="FALSE">Appraiser is NOT FHA qualified</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>VA</mat-label>
+        <mat-select formControlName="VA" value="FALSE" placeholder="License">
+          <mat-option value="TRUE">Appraiser is VA qualified</mat-option>
+          <mat-option value="FALSE">Appraiser is NOT VA qualified</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date placed on panel</mat-label>
+        <input
+          formControlName="dataOfPlacement"
+          matInput
+          [matDatepicker]="picker"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> activeOrders </mat-label>
+        <input
+          formControlName="activeOrders"
+          matInput
+          placeholder="# of Orders"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select States Of Coverage</mat-label>
+        <mat-select
+          formControlName="stateCoverage"
+          [formControl]="statesFormControl"
+          multiple
         >
-        <mat-option value="Certified General">Certified General</mat-option>
-      </mat-select>
-    </mat-form-field>
+          <mat-option
+            *ngFor="let state of multipleSelectList"
+            [value]="state"
+            >{{ state }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
 
-    <mat-form-field appearance="outline">
-      <mat-label>License Number </mat-label>
-      <input formControlName="licenseNumber" matInput placeholder="License Number" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>FHA</mat-label>
-      <mat-select formControlName="FHA" value="FALSE" placeholder="License">
-        <mat-option value="TRUE">Appraiser is FHA qualified</mat-option>
-        <mat-option value="FALSE">Appraiser is NOT FHA qualified</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>VA</mat-label>
-      <mat-select formControlName="VA" value="FALSE" placeholder="License">
-        <mat-option value="TRUE">Appraiser is VA qualified</mat-option>
-        <mat-option value="FALSE">Appraiser is NOT VA qualified</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Date placed on panel</mat-label>
-      <input formControlName="dataOfPlacement" matInput [matDatepicker]="picker" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label> activeOrders </mat-label>
-      <input formControlName="activeOrders" matInput placeholder="# of Orders" />
-    </mat-form-field>
-
-
-
-    <mat-form-field appearance="fill">
-      <mat-label>Select States Of Coverage</mat-label>
-      <mat-select formControlName="stateCoverage" [formControl]="statesFormControl" multiple>
-        <mat-option *ngFor="let state of multipleSelectList" [value]="state">{{
-          state
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      (click)="addAppraiser()"
+    >
+      {{ actionBtn }}
+    </button>
   </div>
-</form>
-
-
-
-
-<div mat-dialog-actions [align]="'end'">
-  <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
-  <button
-    style="margin-left: 8px"
-    mat-raised-button
-    color="primary"
-    (click)="addAppraiser()"
-  >
-    {{ actionBtn }}
-  </button>
 </div>
