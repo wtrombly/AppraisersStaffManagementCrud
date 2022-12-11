@@ -95,6 +95,7 @@ export class AddMemberDialogueComponent implements OnInit {
       FHA: ['', Validators.required],
       VA: ['', Validators.required],
       dataOfPlacement: ['', Validators.required],
+      activeOrders: ['', Validators.required],
       stateCoverage: ['', Validators.required],
     });
 
@@ -128,6 +129,7 @@ export class AddMemberDialogueComponent implements OnInit {
       this.staffAppraiserForm.controls['dataOfPlacement'].setValue(
         this.editData.dataOfPlacement
       );
+      this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);
       this.staffAppraiserForm.controls['stateCoverage'].setValue(
         this.editData.stateCoverage
       );

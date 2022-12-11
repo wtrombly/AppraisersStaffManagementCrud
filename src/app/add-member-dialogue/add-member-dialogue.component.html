@@ -54,7 +54,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>License Number <Code></Code></mat-label>
+      <mat-label>License Number </mat-label>
       <input formControlName="licenseNumber" matInput placeholder="License Number" />
     </mat-form-field>
 
@@ -84,6 +84,13 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> activeOrders </mat-label>
+      <input formControlName="activeOrders" matInput placeholder="# of Orders" />
+    </mat-form-field>
+
+
 
     <mat-form-field appearance="fill">
       <mat-label>Select States Of Coverage</mat-label>
