@@ -13,7 +13,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AssignOrderComponent {
   orderForm!: FormGroup;
-  actionBtn: string = 'Save';
+  actionBtn: string = 'Assign Order';
   public states = States;
   statesFormControl = new FormControl('');
 
