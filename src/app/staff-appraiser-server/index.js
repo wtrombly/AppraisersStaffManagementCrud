@@ -8,6 +8,8 @@ const events = require('./events');
 
 const connection = mysql.createConnection({
   host     : 'localhost',
+  user: 'admin',
+  password: 'rOy&78B3Ke6q',
   database : 'staff_appraiser'
 });
 
