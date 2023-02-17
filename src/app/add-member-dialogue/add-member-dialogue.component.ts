@@ -77,7 +77,7 @@ export class AddMemberDialogueComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: ApiService,
+    @Inject(ApiService) private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialofRef: MatDialogRef<AddMemberDialogueComponent>){}
 
