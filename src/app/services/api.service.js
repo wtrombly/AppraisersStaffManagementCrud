@@ -8,7 +8,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host : 'localhost',
   user: 'root',
-  password : 'rOy&78B3Ke6q',
+  password : 'password',
   database : 'test_connection'
 })
 
@@ -17,12 +17,23 @@ app.get('/', (req,res) => {
 })
 
 app.get('/allUsers', (req, res) => {
-  connection.connect();
+  connection.connect(function(error){
+    if(error){
+      throw error;
+    }
+    else
+    {
+      console.log('MySql Database is connected successfully.')
+    }
+  });
+
   connection.query("select * from user", function(error, results) {
-    console.log("query response is ", results);
+    console.log("query response is ", results)
   })
-  connection.end();
+  connection.end()
 })
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
