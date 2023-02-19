@@ -56,6 +56,7 @@ export class AppComponent implements OnInit{
     .subscribe({
       next:(res)=>{
         this.dataSource = new MatTableDataSource(res);
+        console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
