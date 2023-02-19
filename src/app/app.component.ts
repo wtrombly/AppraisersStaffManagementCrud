@@ -18,7 +18,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class AppComponent implements OnInit{
   title = 'AppraisersStaffManagementCrud';
 
-  displayedColumns: string[] = ['firstName', 'lastName', 'streetNumber', 'streetName', 'city', 'state', 'zipCode', 'licenseLevel', 'licenseNumber', 'FHA', 'VA', 'dataOfPlacement', 'stateCoverage', 'action'];
+  displayedColumns: string[] = ['emp_id', 'first_name', 'last_name', 'street_number', 'street_name', 'city', 'state_id', 'zipCode', 'license_level', 'licenseNumber', 'FHA', 'VA', 'dataOfPlacement', 'stateCoverage', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
