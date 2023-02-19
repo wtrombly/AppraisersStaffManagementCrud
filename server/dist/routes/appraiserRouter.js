@@ -45,6 +45,7 @@ appraiserRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (err) {
             return res.status(500).json({ "errorMessage": err.message });
         }
+        console.log("appraiserRouter.get function has been called");
         res.status(200).json({ "data": appraisers });
     });
 }));

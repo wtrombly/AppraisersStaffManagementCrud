@@ -13,10 +13,10 @@ export class ApiService {
 
   constructor(private http : HttpClient) { }
 
-  apiurl = "http://localhost:3000/appraiserList"
+  apiurl = "http://localhost:3000/appraisers"
 
    postAppraiser(data : any) {
-    return this.http.post<any>("http://localhost:3000/appraiserList/",data);
+    return this.http.post<any>("http://localhost:3000/appraisers/",data);
    }
 
    getAppraiser() {
@@ -24,11 +24,11 @@ export class ApiService {
   }
 
   putAppraiser(data : any, id : number){
-    return this.http.put<any>("http://localhost:3000/appraiserList/"+id, data);
+    return this.http.put<any>("http://localhost:3000/appraisers/"+id, data);
   }
 
   deleteAppraiser(id : number) {
-    return this.http.delete<any>("http://localhost:3000/appraiserList/"+id);
+    return this.http.delete<any>("http://localhost:3000/appraisers/"+id);
   }
 
 
