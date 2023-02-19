@@ -30,10 +30,12 @@ const dotenv = __importStar(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const bodyParser = __importStar(require("body-parser"));
 const orderRouter_1 = require("./routes/orderRouter");
+const appraiserRouter_1 = require("./routes/appraiserRouter");
 const app = (0, express_1.default)();
 dotenv.config();
 app.use(bodyParser.json());
 app.use("/orders", orderRouter_1.orderRouter);
+app.use("/appraisers", appraiserRouter_1.appraiserRouter);
 app.listen(process.env.PORT, () => {
     console.log("Node server started running");
 });

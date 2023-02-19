@@ -35,40 +35,40 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.orderRouter = void 0;
+exports.appraiserRouter = void 0;
 const express_1 = __importDefault(require("express"));
-const orderModel = __importStar(require("../models/order"));
-const orderRouter = express_1.default.Router();
-exports.orderRouter = orderRouter;
-orderRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    orderModel.findAll((err, orders) => {
+const appraiserModel = __importStar(require("../models/appraiser"));
+const appraiserRouter = express_1.default.Router();
+exports.appraiserRouter = appraiserRouter;
+appraiserRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    appraiserModel.findAll((err, appraisers) => {
         if (err) {
             return res.status(500).json({ "errorMessage": err.message });
         }
-        res.status(200).json({ "data": orders });
+        res.status(200).json({ "data": appraisers });
     });
 }));
-orderRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const newOrder = req.body;
-    orderModel.create(newOrder, (err, orderId) => {
+appraiserRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const newAppraiser = req.body;
+    appraiserModel.create(newAppraiser, (err, emp_id) => {
         if (err) {
             return res.status(500).json({ "message": err.message });
         }
-        res.status(200).json({ "orderId": orderId });
+        res.status(200).json({ "emp_id": emp_id });
     });
 }));
-orderRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const orderId = Number(req.params.id);
-    orderModel.findOne(orderId, (err, order) => {
+appraiserRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const emp_id = Number(req.params.id);
+    appraiserModel.findOne(emp_id, (err, appraiser) => {
         if (err) {
             return res.status(500).json({ "message": err.message });
         }
-        res.status(200).json({ "data": order });
+        res.status(200).json({ "data": appraiser });
     });
 }));
-orderRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const order = req.body;
-    orderModel.update(order, (err) => {
+appraiserRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const appraiser = req.body;
+    appraiserModel.update(appraiser, (err) => {
         if (err) {
             return res.status(500).json({ "message": err.message });
         }

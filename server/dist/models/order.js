@@ -4,7 +4,9 @@ exports.update = exports.findAll = exports.findOne = exports.create = void 0;
 const db_1 = require("../db");
 const create = (order, callback) => {
     const queryString = "INSERT INTO ProductOrder (product_id, customer_id, product_quantity) VALUES (?, ?, ?)";
-    db_1.db.query(queryString, [order.product.id, order.customer.id, order.productQuantity], (err, result) => {
+    db_1.db.query(queryString, [order.product.id,
+        order.customer.id,
+        order.productQuantity], (err, result) => {
         if (err) {
             callback(err);
         }

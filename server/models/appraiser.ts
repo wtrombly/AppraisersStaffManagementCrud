@@ -66,9 +66,7 @@ export const findOne = (emp_id: number, callback: Function) => {
 
 export const findAll = (callback: Function) => {
   const queryString = `
-    SELECT
-      o.*,
-      FROM emp AS o`
+    SELECT * FROM emp`
 
 
   db.query(queryString, (err, result) => {
