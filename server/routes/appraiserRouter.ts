@@ -1,7 +1,7 @@
 
 import express, {Request, Response} from "express";
 import * as appraiserModel from "../models/appraiser";
-import {Appraiser, BasicAppraiser} from "../types/appraiser";
+import {Appraiser} from "../types/appraiser";
 const appraiserRouter = express.Router();
 
 appraiserRouter.get("/", async (req: Request, res: Response) => {
