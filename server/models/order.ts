@@ -8,7 +8,9 @@ export const create = (order: BasicOrder, callback: Function) => {
 
   db.query(
     queryString,
-    [order.product.id, order.customer.id, order.productQuantity],
+    [order.product.id,
+     order.customer.id,
+     order.productQuantity],
     (err, result) => {
       if (err) {callback(err)};
 
