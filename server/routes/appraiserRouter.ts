@@ -9,7 +9,7 @@ appraiserRouter.get("/", async (req: Request, res: Response) => {
     if (err) {
       return res.status(500).json({"errorMessage": err.message});
     }
-
+    console.log("appraiserRouter.get function has been called")
     res.status(200).json({"data": appraisers});
   });
 });
