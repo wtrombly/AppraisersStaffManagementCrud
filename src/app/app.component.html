@@ -30,25 +30,25 @@
         <!-- First Name -->
         <ng-container matColumnDef="first_name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.first_name}} </td>
         </ng-container>
 
         <!-- ast Name -->
         <ng-container matColumnDef="last_name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.last_name}} </td>
         </ng-container>
 
         <!-- treet Number -->
         <ng-container matColumnDef="street_number">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Street Number </th>
-          <td mat-cell *matCellDef="let row"> {{row.streetNumber}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.street_number}} </td>
         </ng-container>
 
         <!-- Street Name-->
         <ng-container matColumnDef="street_name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Street Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.streetName}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.street_name}} </td>
         </ng-container>
 
         <!-- City Name-->
@@ -60,19 +60,25 @@
         <!-- State -->
         <ng-container matColumnDef="state_id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
-          <td mat-cell *matCellDef="let row"> {{row.state.name}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.state_id}} </td>
         </ng-container>
 
         <!-- Zip -->
         <ng-container matColumnDef="zip_code">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Zip </th>
-          <td mat-cell *matCellDef="let row"> {{row.zipCode}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.zip_code}} </td>
+        </ng-container>
+
+        <!-- Date of Contract -->
+        <ng-container matColumnDef="employment_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Contract </th>
+          <td mat-cell *matCellDef="let row"> {{row.employment_date | date}} </td>
         </ng-container>
 
         <!-- License Type -->
         <ng-container matColumnDef="license_level">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> License Type </th>
-          <td mat-cell *matCellDef="let row"> {{row.licenseLevel}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.license_level}} </td>
         </ng-container>
 
         <!-- License Number -->
@@ -84,20 +90,16 @@
         <!-- FHA -->
         <ng-container matColumnDef="fha">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> FHA </th>
-          <td mat-cell *matCellDef="let row"> {{row.FHA}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.fha}} </td>
         </ng-container>
 
         <!-- VA -->
         <ng-container matColumnDef="va">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> VA </th>
-          <td mat-cell *matCellDef="let row"> {{row.VA}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.va}} </td>
         </ng-container>
 
-        <!-- Date of Contract -->
-        <ng-container matColumnDef="employment_date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Contract </th>
-          <td mat-cell *matCellDef="let row"> {{row.dataOfPlacement | date}} </td>
-        </ng-container>
+
 
          <!-- Number of Orders Assigned -->
          <!-- <ng-container matColumnDef="activeOrders">
