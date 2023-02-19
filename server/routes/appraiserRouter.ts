@@ -2,9 +2,9 @@
 import express, {Request, Response} from "express";
 import * as appraiserModel from "../models/appraiser";
 import {Appraiser, BasicAppraiser} from "../types/appraiser";
-const orderRouter = express.Router();
+const appraiserRouter = express.Router();
 
-orderRouter.get("/", async (req: Request, res: Response) => {
+appraiserRouter.get("/", async (req: Request, res: Response) => {
   appraiserModel.findAll((err: Error, appraisers: Appraiser[]) => {
     if (err) {
       return res.status(500).json({"errorMessage": err.message});
@@ -14,7 +14,7 @@ orderRouter.get("/", async (req: Request, res: Response) => {
   });
 });
 
-orderRouter.post("/", async (req: Request, res: Response) => {
+appraiserRouter.post("/", async (req: Request, res: Response) => {
   const newAppraiser: Appraiser = req.body;
   appraiserModel.create(newAppraiser, (err: Error, emp_id: number) => {
     if (err) {
@@ -25,7 +25,7 @@ orderRouter.post("/", async (req: Request, res: Response) => {
   });
 });
 
-orderRouter.get("/:id", async (req: Request, res: Response) => {
+appraiserRouter.get("/:id", async (req: Request, res: Response) => {
   const emp_id: number = Number(req.params.id);
   appraiserModel.findOne(emp_id, (err: Error, appraiser: Appraiser) => {
     if (err) {
@@ -35,7 +35,7 @@ orderRouter.get("/:id", async (req: Request, res: Response) => {
   })
 });
 
-orderRouter.put("/:id", async (req: Request, res: Response) => {
+appraiserRouter.put("/:id", async (req: Request, res: Response) => {
   const appraiser: Appraiser = req.body;
   appraiserModel.update(appraiser, (err: Error) => {
     if (err) {
@@ -46,4 +46,4 @@ orderRouter.put("/:id", async (req: Request, res: Response) => {
   })
 });
 
-export {orderRouter};
+export {appraiserRouter};
