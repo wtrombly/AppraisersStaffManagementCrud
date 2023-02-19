@@ -100,12 +100,12 @@ export const findAll = (callback: Function) => {
   });
 };
 
-export const update = (order: Order, callback: Function) => {
-  const queryString = `UPDATE ProductOrder SET product_id=?, product_quantity=? WHERE order_id=?`;
+export const update = (appraiser: Appraiser, callback: Function) => {
+  const queryString = `UPDATE Appraiser SET first_name=?, last_name=? WHERE order_id=?`;
 
   db.query(
     queryString,
-    [order.product.id, order.productQuantity, order.orderId],
+    [appraiser.first_name, appraiser.last_name, appraiser.emp_id],
     (err, result) => {
       if (err) {
         callback(err);
