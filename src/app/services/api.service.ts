@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-// use the following command in terminal to start server
-// json-server --watch db.json
 
 
 @Injectable({
