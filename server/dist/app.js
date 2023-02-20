@@ -30,8 +30,10 @@ const dotenv = __importStar(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const bodyParser = __importStar(require("body-parser"));
 const appraiserRouter_1 = require("./routes/appraiserRouter");
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 dotenv.config();
+app.use((0, cors_1.default)());
 app.use(bodyParser.json());
 app.use("/appraisers", appraiserRouter_1.appraiserRouter);
 app.listen(process.env.PORT, () => {

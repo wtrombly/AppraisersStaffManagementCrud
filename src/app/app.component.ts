@@ -55,13 +55,14 @@ export class AppComponent implements OnInit{
     this.api.getAppraiser()
     .subscribe({
       next:(res)=>{
+
         this.dataSource = new MatTableDataSource(res);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
-      error:()=>{
-        alert("Error while fetching the data")
+      error:(err)=>{
+               alert("Error while fetching the data")
       }
     })
   }

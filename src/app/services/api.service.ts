@@ -18,7 +18,7 @@ export class ApiService {
    }
 
    getAppraiser() {
-    return this.http.get<any>("http://localhost:3000/appraisers/");
+    return this.http.get<any>("http://localhost:3000/appraisers");
   }
 
   putAppraiser(data : any, id : number){
