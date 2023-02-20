@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
     this.api.getAppraiser().subscribe({
       next: (res) => {
         console.log(res)
-        this.dataSource = res;
+        this.dataSource = res.data;
         console.log("type is of type", typeof(res))
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
