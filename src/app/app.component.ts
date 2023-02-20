@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     'zip_code',
     'employment_date',
     'license_level',
+    'license_number',
     'fha',
     'va',
     'action',
@@ -70,9 +71,7 @@ export class AppComponent implements OnInit {
   getAllAppraisers() {
     this.api.getAppraiser().subscribe({
       next: (res) => {
-        console.log(res)
-        this.dataSource = res.data;
-        console.log("type is of type", typeof(res))
+        this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(this.dataSource);

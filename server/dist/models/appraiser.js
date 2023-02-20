@@ -15,6 +15,7 @@ const create = (appraiser, callback) => {
         appraiser.zip_code,
         appraiser.employment_date,
         appraiser.license_level,
+        appraiser.license_number,
         appraiser.fha,
         appraiser.va,
     ], (err, result) => {
@@ -48,6 +49,7 @@ const findOne = (emp_id, callback) => {
             zip_code: row.zip_code,
             employment_date: row.employment_date,
             license_level: row.license_level,
+            license_number: row.license_number,
             fha: row.fha,
             va: row.va
         };
@@ -76,6 +78,7 @@ const findAll = (callback) => {
                 zip_code: row.zip_code,
                 employment_date: row.employment_date,
                 license_level: row.license_level,
+                license_number: row.license_number,
                 fha: row.fha,
                 va: row.va
             };
