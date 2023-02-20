@@ -33,9 +33,10 @@ const appraiserRouter_1 = require("./routes/appraiserRouter");
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 dotenv.config();
+// any website can access this locally due to this line of code
 app.use((0, cors_1.default)());
 app.use(bodyParser.json());
-app.use("/appraisers", appraiserRouter_1.appraiserRouter);
+app.use('/appraisers', appraiserRouter_1.appraiserRouter);
 app.listen(process.env.PORT, () => {
-    console.log("Node server started running");
+    console.log('Node server started running');
 });
