@@ -70,7 +70,9 @@ export class AppComponent implements OnInit {
   getAllAppraisers() {
     this.api.getAppraiser().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        console.log(res)
+        this.dataSource = res;
+        console.log("type is of type", typeof(res))
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(this.dataSource);
