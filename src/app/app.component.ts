@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     'street_number',
     'street_name',
     'city',
-    'state_id',
+    'state_name',
     'zip_code',
     'employment_date',
     'license_level',

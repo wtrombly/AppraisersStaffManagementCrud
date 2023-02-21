@@ -60,8 +60,11 @@ const findOne = (emp_id, callback) => {
 exports.findOne = findOne;
 const findAll = (callback) => {
     const queryString = `
-    SELECT * FROM emp
-    INNER JOIN emp.state_id = states.id`;
+    SELECT
+    o.*,
+    p.*
+    FROM emp AS o
+    INNER JOIN states AS p ON p.id = o.state_id`;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
             callback(err);

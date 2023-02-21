@@ -69,8 +69,11 @@ export const findOne = (emp_id: number, callback: Function) => {
 
 export const findAll = (callback: Function) => {
   const queryString = `
-    SELECT * FROM emp
-    INNER JOIN emp.state_id = states.id`;
+    SELECT
+    o.*,
+    p.*
+    FROM emp AS o
+    INNER JOIN states AS p ON p.id = o.state_id`;
 
 
   db.query(queryString, (err, result) => {
