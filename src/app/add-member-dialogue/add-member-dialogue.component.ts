@@ -76,6 +76,7 @@ export class AddMemberDialogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({
+      emp_id: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       street_number: ['', ],
