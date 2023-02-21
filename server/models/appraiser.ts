@@ -4,7 +4,7 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (appraiser: Appraiser, callback: Function) => {
   const queryString =
-    'INSERT INTO emp (product_id, customer_id, product_quantity) VALUES (?, ?, ?)';
+    'INSERT INTO emp (emp_id, first_name, last_name, street_number, street_name, city, state_id, zip_code, employment_date, license_level, license_number, fha, va) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?)';
 
   db.query(
     queryString,
