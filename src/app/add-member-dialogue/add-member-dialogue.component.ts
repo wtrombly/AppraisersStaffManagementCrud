@@ -76,56 +76,56 @@ export class AddMemberDialogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      streetNumber: ['', ],
-      streetName: ['',],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      street_number: ['', ],
+      street_name: ['',],
       city: ['', ],
-      state: ['', ],
-      zipCode: ['', ],
-      licenseLevel: ['', ],
-      licenseNumber: ['', ],
-      FHA: ['', ],
-      VA: ['', ],
-      dateOfPlacement: ['', ],
-      activeOrders: ['', ],
-      stateCoverage: ['', ],
+      state_name: ['', ],
+      zip_code: ['', ],
+      license_level: ['', ],
+      license_number: ['', ],
+      fha: ['', ],
+      va: ['', ],
+      employment_date: ['', ]
+      /* activeOrders: ['', ],
+      stateCoverage: ['', ], */
     });
 
     if (this.editData) {
       this.actionBtn = 'Update';
-      this.staffAppraiserForm.controls['firstName'].setValue(
-        this.editData.firstName
+      this.staffAppraiserForm.controls['first_name'].setValue(
+        this.editData.first_name
       );
-      this.staffAppraiserForm.controls['lastName'].setValue(
-        this.editData.lastName
+      this.staffAppraiserForm.controls['last_name'].setValue(
+        this.editData.last_name
       );
-      this.staffAppraiserForm.controls['streetNumber'].setValue(
-        this.editData.streetNumber
+      this.staffAppraiserForm.controls['street_number'].setValue(
+        this.editData.street_number
       );
-      this.staffAppraiserForm.controls['streetName'].setValue(
-        this.editData.streetName
+      this.staffAppraiserForm.controls['street_name'].setValue(
+        this.editData.street_name
       );
-      this.staffAppraiserForm.controls['state'].setValue(this.editData.state);
+      this.staffAppraiserForm.controls['state_name'].setValue(this.editData.state_name);
       this.staffAppraiserForm.controls['city'].setValue(this.editData.city);
-      this.staffAppraiserForm.controls['zipCode'].setValue(
-        this.editData.zipCode
+      this.staffAppraiserForm.controls['zip_code'].setValue(
+        this.editData.zip_code
       );
-      this.staffAppraiserForm.controls['licenseLevel'].setValue(
-        this.editData.licenseLevel
+      this.staffAppraiserForm.controls['license_level'].setValue(
+        this.editData.license_level
       );
-      this.staffAppraiserForm.controls['licenseNumber'].setValue(
-        this.editData.licenseNumber
+      this.staffAppraiserForm.controls['license_number'].setValue(
+        this.editData.license_number
       );
-      this.staffAppraiserForm.controls['FHA'].setValue(this.editData.FHA);
-      this.staffAppraiserForm.controls['VA'].setValue(this.editData.VA);
-      this.staffAppraiserForm.controls['dataOfPlacement'].setValue(
-        this.editData.dataOfPlacement
+      this.staffAppraiserForm.controls['fha'].setValue(this.editData.fha);
+      this.staffAppraiserForm.controls['va'].setValue(this.editData.va);
+      this.staffAppraiserForm.controls['employment_date'].setValue(
+        this.editData.employment_date
       );
-      this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);
+      /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);
       this.staffAppraiserForm.controls['stateCoverage'].setValue(
         this.editData.stateCoverage
-      );
+      ); */
     }
   }
 

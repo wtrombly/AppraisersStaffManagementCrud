@@ -3,18 +3,18 @@
   <form [formGroup]="staffAppraiserForm">
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input formControlName="firstName" matInput placeholder="First Name" />
+      <input formControlName="first_name" matInput placeholder="First Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input formControlName="lastName" matInput placeholder="Last Name" />
+      <input formControlName="last_name" matInput placeholder="Last Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Street Number</mat-label>
       <input
-        formControlName="streetNumber"
+        formControlName="street_number"
         matInput
         placeholder="Street Number"
       />
@@ -22,7 +22,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Street Name</mat-label>
-      <input formControlName="streetName" matInput placeholder="Street Name" />
+      <input formControlName="street_name" matInput placeholder="Street Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -33,7 +33,7 @@
     <div class="outline">
       <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
-        <mat-select formControlName="state" placeholder="Select State">
+        <mat-select formControlName="state_name" placeholder="Select State">
           <mat-option *ngFor="let state of states" [value]="state">
             {{ state.name }}
           </mat-option>
@@ -42,12 +42,12 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Zip Code</mat-label>
-        <input formControlName="zipCode" matInput placeholder="Zip Code" />
+        <input formControlName="zip_code" matInput placeholder="Zip Code" />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Appraiser License Level</mat-label>
-        <mat-select formControlName="licenseLevel" placeholder="License">
+        <mat-select formControlName="license_level" placeholder="License">
           <mat-option value="Trainee">Trainee</mat-option>
           <mat-option value="Licensed">Licensed</mat-option>
           <mat-option value="Certified Residential"
@@ -60,7 +60,7 @@
       <mat-form-field appearance="outline">
         <mat-label>License Number </mat-label>
         <input
-          formControlName="licenseNumber"
+          formControlName="license_number"
           matInput
           placeholder="License Number"
         />
@@ -68,7 +68,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>FHA</mat-label>
-        <mat-select formControlName="FHA" value="FALSE" placeholder="License">
+        <mat-select formControlName="fha" value="FALSE" placeholder="License">
           <mat-option value="TRUE">Appraiser is FHA qualified</mat-option>
           <mat-option value="FALSE">Appraiser is NOT FHA qualified</mat-option>
         </mat-select>
@@ -76,7 +76,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>VA</mat-label>
-        <mat-select formControlName="VA" value="FALSE" placeholder="License">
+        <mat-select formControlName="va" value="FALSE" placeholder="License">
           <mat-option value="TRUE">Appraiser is VA qualified</mat-option>
           <mat-option value="FALSE">Appraiser is NOT VA qualified</mat-option>
         </mat-select>
@@ -85,7 +85,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Date placed on panel</mat-label>
         <input
-          formControlName="dateOfPlacement"
+          formControlName="employment_date"
           matInput
           [matDatepicker]="picker"
         />
@@ -97,16 +97,16 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+     <!--  <mat-form-field appearance="outline">
         <mat-label> activeOrders </mat-label>
         <input
           formControlName="activeOrders"
           matInput
           placeholder="# of Orders"
         />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field appearance="fill">
+     <!--  <mat-form-field appearance="fill">
         <mat-label>Select States Of Coverage</mat-label>
         <mat-select
           formControlName="stateCoverage"
@@ -119,7 +119,7 @@
             >{{ state }}</mat-option
           >
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
     </div>
   </form>
 
