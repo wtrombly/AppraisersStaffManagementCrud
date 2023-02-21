@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.update = exports.findAll = exports.findOne = exports.create = void 0;
 const db_1 = require("../db");
 const create = (appraiser, callback) => {
-    const queryString = 'INSERT INTO emp (product_id, customer_id, product_quantity) VALUES (?, ?, ?)';
+    const queryString = 'INSERT INTO emp (emp_id, first_name, last_name, street_number, street_name, city, state_id, zip_code, employment_date, license_level, license_number, fha, va) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?)';
     db_1.db.query(queryString, [
         appraiser.emp_id,
         appraiser.first_name,
@@ -46,6 +46,7 @@ const findOne = (emp_id, callback) => {
             street_name: row.street_name,
             city: row.city,
             state_id: row.state_id,
+            state_name: row.state_name,
             zip_code: row.zip_code,
             employment_date: row.employment_date,
             license_level: row.license_level,
@@ -59,7 +60,8 @@ const findOne = (emp_id, callback) => {
 exports.findOne = findOne;
 const findAll = (callback) => {
     const queryString = `
-    SELECT * FROM emp`;
+    SELECT * FROM emp
+    INNER JOIN emp.state_id = states.id`;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
             callback(err);
@@ -75,6 +77,7 @@ const findAll = (callback) => {
                 street_name: row.street_name,
                 city: row.city,
                 state_id: row.state_id,
+                state_name: row.state_name,
                 zip_code: row.zip_code,
                 employment_date: row.employment_date,
                 license_level: row.license_level,
