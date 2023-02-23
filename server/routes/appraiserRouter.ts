@@ -14,6 +14,7 @@ appraiserRouter.get("/", async (req: Request, res: Response) => {
   });
 });
 
+
 appraiserRouter.post("/", async (req: Request, res: Response) => {
   const newAppraiser: Appraiser = req.body;
   appraiserModel.create(newAppraiser, (err: Error, emp_id: number) => {

@@ -14,6 +14,7 @@ export class ApiService {
   apiurl = "http://localhost:3000/appraisers"
 
    postAppraiser(data : any) {
+   
     return this.http.post<any>("http://localhost:3000/appraisers/",data);
    }
 

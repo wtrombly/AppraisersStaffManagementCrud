@@ -76,7 +76,7 @@ export class AddMemberDialogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({
-      emp_id: ['', Validators.required],
+
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       street_number: ['', ],
@@ -120,27 +120,33 @@ export class AddMemberDialogueComponent implements OnInit {
       );
       this.staffAppraiserForm.controls['fha'].setValue(this.editData.fha);
       this.staffAppraiserForm.controls['va'].setValue(this.editData.va);
-      this.staffAppraiserForm.controls['employment_date'].setValue(
+      /* this.staffAppraiserForm.controls['employment_date'].setValue(
         this.editData.employment_date
-      );
+      ); */
       /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);
       this.staffAppraiserForm.controls['stateCoverage'].setValue(
         this.editData.stateCoverage
       ); */
+
     }
   }
 
   addAppraiser() {
     if (!this.editData) {
       if (this.staffAppraiserForm.valid) {
+        console.log(this.staffAppraiserForm)
         this.api.postAppraiser(this.staffAppraiserForm.value)
         .subscribe({
           next: (res) => {
+            console.log("log res", res);
             alert("Appraiser added successfully");
             this.staffAppraiserForm.reset();
             this.dialofRef.close('save');
           },
           error: () => {
+            console.error();
+
+
             alert("Error while adding appraiser!!");
           },
         });

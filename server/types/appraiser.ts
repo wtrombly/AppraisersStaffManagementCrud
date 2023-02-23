@@ -12,7 +12,7 @@ export interface Appraiser extends BasicAppraiser {
   state_id: number,
   state_name: string,
   zip_code: number,
-  employment_date: Date,
+ /*  employment_date: Date, */
   license_level: string,
   license_number: string,
   fha: boolean,

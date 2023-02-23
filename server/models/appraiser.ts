@@ -4,12 +4,11 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (appraiser: Appraiser, callback: Function) => {
   const queryString =
-    'INSERT INTO emp (emp_id, first_name, last_name, street_number, street_name, city, state_id, zip_code, employment_date, license_level, license_number, fha, va) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?)';
+    'INSERT INTO emp ( first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?)';
 
   db.query(
     queryString,
     [
-      appraiser.emp_id,
       appraiser.first_name,
       appraiser.last_name,
       appraiser.street_number,
@@ -17,7 +16,7 @@ export const create = (appraiser: Appraiser, callback: Function) => {
       appraiser.city,
       appraiser.state_id,
       appraiser.zip_code,
-      appraiser.employment_date,
+     /*  appraiser.employment_date, */
       appraiser.license_level,
       appraiser.license_number,
       appraiser.fha,
@@ -28,7 +27,9 @@ export const create = (appraiser: Appraiser, callback: Function) => {
         callback(err);
       }
 
+
       const insertId = (<OkPacket>result).insertId;
+
       callback(null, insertId);
     }
   );
@@ -57,7 +58,7 @@ export const findOne = (emp_id: number, callback: Function) => {
       state_id: row.state_id,
       state_name: row.state_name,
       zip_code: row.zip_code,
-      employment_date: row.employment_date,
+    /*   employment_date: row.employment_date, */
       license_level: row.license_level,
       license_number: row.license_number,
       fha: row.fha,
@@ -95,7 +96,7 @@ export const findAll = (callback: Function) => {
         state_id: row.state_id,
         state_name: row.state_name,
         zip_code: row.zip_code,
-        employment_date: row.employment_date,
+       /*  employment_date: row.employment_date, */
         license_level: row.license_level,
         license_number: row.license_number,
         fha: row.fha,
