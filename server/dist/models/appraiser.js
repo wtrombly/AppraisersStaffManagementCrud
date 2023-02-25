@@ -45,7 +45,6 @@ const findOne = (emp_id, callback) => {
             street_name: row.street_name,
             city: row.city,
             state_id: row.state_id,
-            state_name: row.state_name,
             zip_code: row.zip_code,
             /*   employment_date: row.employment_date, */
             license_level: row.license_level,
@@ -79,7 +78,6 @@ const findAll = (callback) => {
                 street_name: row.street_name,
                 city: row.city,
                 state_id: row.state_id,
-                state_name: row.state_name,
                 zip_code: row.zip_code,
                 /*  employment_date: row.employment_date, */
                 license_level: row.license_level,

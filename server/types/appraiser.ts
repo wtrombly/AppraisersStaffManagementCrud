@@ -10,7 +10,6 @@ export interface Appraiser extends BasicAppraiser {
   street_name: string,
   city: string,
   state_id: number,
-  state_name: string,
   zip_code: number,
  /*  employment_date: Date, */
   license_level: string,

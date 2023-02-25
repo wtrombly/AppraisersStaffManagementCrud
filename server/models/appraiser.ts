@@ -56,7 +56,6 @@ export const findOne = (emp_id: number, callback: Function) => {
       street_name: row.street_name,
       city: row.city,
       state_id: row.state_id,
-      state_name: row.state_name,
       zip_code: row.zip_code,
     /*   employment_date: row.employment_date, */
       license_level: row.license_level,
@@ -94,7 +93,6 @@ export const findAll = (callback: Function) => {
         street_name: row.street_name,
         city: row.city,
         state_id: row.state_id,
-        state_name: row.state_name,
         zip_code: row.zip_code,
        /*  employment_date: row.employment_date, */
         license_level: row.license_level,

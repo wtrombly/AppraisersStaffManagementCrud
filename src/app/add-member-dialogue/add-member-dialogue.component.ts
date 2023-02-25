@@ -1,6 +1,6 @@
 import { ApiService } from 'src/app/services/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { States } from 'src/app/models/states';
+import { States, State } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -13,6 +13,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddMemberDialogueComponent implements OnInit {
   staffAppraiserForm!: FormGroup;
   actionBtn: string = 'Save';
+
   public states = States;
   statesFormControl = new FormControl('');
   multipleSelectList: string[] = [
@@ -82,13 +83,13 @@ export class AddMemberDialogueComponent implements OnInit {
       street_number: ['', ],
       street_name: ['',],
       city: ['', ],
-      state_name: ['', ],
+      state_id: ['', ],
       zip_code: ['', ],
       license_level: ['', ],
       license_number: ['', ],
       fha: ['', ],
-      va: ['', ],
-      employment_date: ['', ]
+      va: ['', ]
+      /* employment_date: ['', ] */
       /* activeOrders: ['', ],
       stateCoverage: ['', ], */
     });
@@ -107,7 +108,7 @@ export class AddMemberDialogueComponent implements OnInit {
       this.staffAppraiserForm.controls['street_name'].setValue(
         this.editData.street_name
       );
-      this.staffAppraiserForm.controls['state_name'].setValue(this.editData.state_name);
+      this.staffAppraiserForm.controls['state_id'].setValue(this.editData.state_id );
       this.staffAppraiserForm.controls['city'].setValue(this.editData.city);
       this.staffAppraiserForm.controls['zip_code'].setValue(
         this.editData.zip_code
