@@ -30,18 +30,18 @@ export class AddMemberDialogueComponent implements OnInit {
 
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      street_number: ['', ],
-      street_name: ['',],
-      city: ['', ],
-      state_id: ['', ],
-      zip_code: ['', ],
-      license_level: ['', ],
-      license_number: ['', ],
-      fha: ['', ],
-      va: ['', ],
+      street_number: ['',Validators.required ],
+      street_name: ['',Validators.required],
+      city: ['',Validators.required ],
+      state_id: ['',Validators.required ],
+      zip_code: ['',Validators.required ],
+      license_level: ['',Validators.required ],
+      license_number: ['',Validators.required ],
+      fha: ['',Validators.required ],
+      va: ['',Validators.required ],
       /* employment_date: ['', ] */
       /* activeOrders: ['', ],*/
-      stateCoverage: ['', ],
+      stateCoverage: ['',Validators.required ],
     });
 
     if (this.editData) {
