@@ -90,13 +90,13 @@
         <!-- FHA -->
         <ng-container matColumnDef="fha">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> FHA </th>
-          <td mat-cell *matCellDef="let row"> {{row.fha}} </td>
+          <td mat-cell *matCellDef="let row"> {{!!row.fha}} </td>
         </ng-container>
 
         <!-- VA -->
         <ng-container matColumnDef="va">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> VA </th>
-          <td mat-cell *matCellDef="let row"> {{row.va}} </td>
+          <td mat-cell *matCellDef="let row"> {{!!row.va}} </td>
         </ng-container>
 
 
@@ -107,7 +107,7 @@
           <td mat-cell *matCellDef="let row"> {{row.activeOrders}} </td>
         </ng-container> -->
 
-       
+
 
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
