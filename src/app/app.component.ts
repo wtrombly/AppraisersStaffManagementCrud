@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     'city',
     'state_name',
     'zip_code',
-    'employment_date',
+    
     'license_level',
     'license_number',
     'fha',
