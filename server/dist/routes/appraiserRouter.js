@@ -76,3 +76,11 @@ appraiserRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, func
         res.status(200).send();
     });
 }));
+appraiserRouter.delete("/:emp_id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const emp_id = parseInt(req.params.emp_id);
+    appraiserModel.deleteOne(emp_id, (err) => {
+        if (err) {
+            return res.status(500).json({ "message": err.message });
+        }
+    });
+}));

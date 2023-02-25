@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.update = exports.findAll = exports.findOne = exports.create = void 0;
+exports.deleteOne = exports.update = exports.findAll = exports.findOne = exports.create = void 0;
 const db_1 = require("../db");
 const create = (appraiser, callback) => {
     const queryString = 'INSERT INTO emp ( first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va, state_coverage) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?)';
@@ -30,7 +30,7 @@ exports.create = create;
 const findOne = (emp_id, callback) => {
     const queryString = `
     SELECT
-      o.*,
+      o.*
     FROM emp AS o
     WHERE o.emp_id=?`;
     db_1.db.query(queryString, emp_id, (err, result) => {
@@ -104,3 +104,13 @@ const update = (appraiser, callback) => {
     });
 };
 exports.update = update;
+const deleteOne = (emp_id, callback) => {
+    const queryString = `DELETE FROM emp WHERE emp_id=?`;
+    db_1.db.query(queryString, emp_id, (err, result) => {
+        if (err) {
+            callback(err);
+        }
+        callback(null);
+    });
+};
+exports.deleteOne = deleteOne;

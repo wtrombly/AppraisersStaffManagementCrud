@@ -14,7 +14,7 @@ export class ApiService {
   apiurl = "http://localhost:3000/appraisers"
 
    postAppraiser(data : any) {
-   
+
     return this.http.post<any>("http://localhost:3000/appraisers/",data);
    }
 
@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   deleteAppraiser(id : number) {
-    return this.http.delete<any>("http://localhost:3000/appraisers/"+id);
+        return this.http.delete<any>("http://localhost:3000/appraisers/"+id);
   }
 
 

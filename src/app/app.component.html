@@ -115,7 +115,7 @@
             <button mat-icon-button (click)="editAppraiser(row)" color = "primary">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteAppraiser(row.id)" color = "warn">
+            <button mat-icon-button (click)="deleteAppraiser(row.emp_id)" color = "warn">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -126,7 +126,7 @@
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}. If the filter is empty, then no data has been received from the db."</td>
         </tr>
       </table>
 

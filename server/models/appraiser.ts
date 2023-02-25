@@ -39,7 +39,7 @@ export const create = (appraiser: Appraiser, callback: Function) => {
 export const findOne = (emp_id: number, callback: Function) => {
   const queryString = `
     SELECT
-      o.*,
+      o.*
     FROM emp AS o
     WHERE o.emp_id=?`;
 
@@ -119,6 +119,18 @@ export const update = (appraiser: Appraiser, callback: Function) => {
       if (err) {
         callback(err);
       }
+      callback(null);
+    }
+  );
+};
+
+export const deleteOne = (emp_id: number, callback: Function) => {
+  const queryString = `DELETE FROM emp WHERE emp_id=?`;
+
+  db.query(queryString, emp_id, (err, result) => {
+    if (err) {
+      callback(err);
+    }
       callback(null);
     }
   );
