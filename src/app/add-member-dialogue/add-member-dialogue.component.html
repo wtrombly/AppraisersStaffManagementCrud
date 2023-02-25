@@ -38,7 +38,7 @@
         <mat-label>State</mat-label>
         <mat-select formControlName="state_id" placeholder="Select State">
           <mat-option *ngFor="let state of states" [value]="state.id">
-            {{ state.id }}
+            {{ state.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
