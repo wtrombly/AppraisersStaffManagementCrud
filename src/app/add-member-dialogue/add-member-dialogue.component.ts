@@ -1,6 +1,7 @@
+import { State } from './../models/states';
 import { ApiService } from 'src/app/services/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { States, State } from 'src/app/models/states';
+import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -16,58 +17,7 @@ export class AddMemberDialogueComponent implements OnInit {
 
   public states = States;
   statesFormControl = new FormControl('');
-  multipleSelectList: string[] = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Carolina',
-    'North Dakota',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming',
-  ];
+  multipleSelectList = States;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -88,10 +38,10 @@ export class AddMemberDialogueComponent implements OnInit {
       license_level: ['', ],
       license_number: ['', ],
       fha: ['', ],
-      va: ['', ]
+      va: ['', ],
       /* employment_date: ['', ] */
-      /* activeOrders: ['', ],
-      stateCoverage: ['', ], */
+      /* activeOrders: ['', ],*/
+      stateCoverage: ['', ],
     });
 
     if (this.editData) {
@@ -124,10 +74,10 @@ export class AddMemberDialogueComponent implements OnInit {
       /* this.staffAppraiserForm.controls['employment_date'].setValue(
         this.editData.employment_date
       ); */
-      /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);
+      /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);*/
       this.staffAppraiserForm.controls['stateCoverage'].setValue(
         this.editData.stateCoverage
-      ); */
+      );
 
     }
   }

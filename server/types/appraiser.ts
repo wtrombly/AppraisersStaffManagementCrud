@@ -15,5 +15,6 @@ export interface Appraiser extends BasicAppraiser {
   license_level: string,
   license_number: string,
   fha: boolean,
-  va: boolean
+  va: boolean,
+  state_coverage: string,
 }
