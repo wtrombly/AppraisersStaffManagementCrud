@@ -509,3 +509,4 @@ src/app/staff-appraiser-server/node_modules/vary/LICENSE
 src/app/staff-appraiser-server/node_modules/vary/package.json
 src/app/staff-appraiser-server/node_modules/vary/README.md
 *.PNG
+src/assets/sample_data.csv
