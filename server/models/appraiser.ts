@@ -16,7 +16,7 @@ export const create = (appraiser: Appraiser, callback: Function) => {
       appraiser.city,
       appraiser.state_id,
       appraiser.zip_code,
-     /*  appraiser.employment_date, */
+      /*  appraiser.employment_date, */
       appraiser.license_level,
       appraiser.license_number,
       appraiser.fha,
@@ -27,7 +27,6 @@ export const create = (appraiser: Appraiser, callback: Function) => {
       if (err) {
         callback(err);
       }
-
 
       const insertId = (<OkPacket>result).insertId;
 
@@ -58,7 +57,7 @@ export const findOne = (emp_id: number, callback: Function) => {
       city: row.city,
       state_id: row.state_id,
       zip_code: row.zip_code,
-    /*   employment_date: row.employment_date, */
+      /*   employment_date: row.employment_date, */
       license_level: row.license_level,
       license_number: row.license_number,
       fha: row.fha,
@@ -76,7 +75,6 @@ export const findAll = (callback: Function) => {
     p.*
     FROM emp AS o
     INNER JOIN states AS p ON p.id = o.state_id`;
-
 
   db.query(queryString, (err, result) => {
     if (err) {
@@ -96,7 +94,7 @@ export const findAll = (callback: Function) => {
         city: row.city,
         state_id: row.state_id,
         zip_code: row.zip_code,
-       /*  employment_date: row.employment_date, */
+        /*  employment_date: row.employment_date, */
         license_level: row.license_level,
         license_number: row.license_number,
         fha: row.fha,
@@ -124,14 +122,18 @@ export const update = (appraiser: Appraiser, callback: Function) => {
   );
 };
 
-export const deleteOne = (emp_id: number, callback: Function) => {
-  const queryString = `DELETE FROM emp WHERE emp_id=?`;
+export const remove = (emp_id: number, callback: Function) => {
+  const queryString = `DELETE FROM emp WHERE emp_id = ?`;
 
-  db.query(queryString, emp_id, (err, result) => {
+  db.query(queryString, [emp_id], (err, result) => {
     if (err) {
-      callback(err);
+      callback(err, 0);
+    } else if (!result) {
+      callback(null, 0);
+    } else {
+      const affectedRows = (<OkPacket>result).affectedRows || 0;
+      callback(null, affectedRows);
     }
-      callback(null);
-    }
-  );
+  });
 };
+

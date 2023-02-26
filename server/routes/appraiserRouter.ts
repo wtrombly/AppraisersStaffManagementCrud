@@ -50,11 +50,10 @@ appraiserRouter.put("/:id", async (req: Request, res: Response) => {
 appraiserRouter.delete("/:emp_id", async (req: Request, res: Response) => {
   const emp_id: number = parseInt(req.params.emp_id);
 
-  appraiserModel.deleteOne(emp_id, (err: Error) => {
+  appraiserModel.remove(emp_id, (err: Error) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }
-
     res.status(200).json({"emp_id": emp_id});
   });
 });
