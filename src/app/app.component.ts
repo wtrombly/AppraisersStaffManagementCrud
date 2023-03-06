@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
     this.api.getAppraiser().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
-        this.getStateName(this.dataSource);
+        this.getStateResidenceName(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(this.dataSource);
@@ -122,7 +122,7 @@ export class AppComponent implements OnInit {
     }
   }
 
- getStateName(dataSource : MatTableDataSource<Appraiser>) : any {
+ getStateResidenceName(dataSource : MatTableDataSource<Appraiser>) : any {
     const data = this.dataSource.data;
 
     for(let i = 0; i < data.length; i++){
