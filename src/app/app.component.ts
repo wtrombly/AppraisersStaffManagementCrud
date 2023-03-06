@@ -1,3 +1,4 @@
+
 import { AssignOrderComponent } from './assign-order/assign-order.component';
 import { AddMemberDialogueComponent } from './add-member-dialogue/add-member-dialogue.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -6,6 +7,8 @@ import { ApiService } from './services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { States, State } from './models/states';
+import { Appraiser } from './models/appraiser';
 
 @Component({
   selector: 'app-root',
@@ -30,10 +33,12 @@ export class AppComponent implements OnInit {
     'va',
     'action',
   ];
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<Appraiser>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  states = States;
 
   constructor(private dialog: MatDialog, private api: ApiService) {}
 
@@ -71,6 +76,7 @@ export class AppComponent implements OnInit {
     this.api.getAppraiser().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
+        this.getStateName(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(this.dataSource);
@@ -115,4 +121,17 @@ export class AppComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+ getStateName(dataSource : MatTableDataSource<Appraiser>) : any {
+    const data = this.dataSource.data;
+
+    for(let i = 0; i < data.length; i++){
+      for(let j = 0; j < this.states.length; j++){
+        if(data[i].state_id == this.states[j].id){
+          data[i].state_name = this.states[j].name
+          console.log(data[i].state_name)
+        }
+      }
+    }
+ }
 }
