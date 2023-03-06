@@ -36,9 +36,12 @@ appraiserRouter.get("/:id", async (req: Request, res: Response) => {
   })
 });
 
-appraiserRouter.put("/:id", async (req: Request, res: Response) => {
+appraiserRouter.put("/:id",  async (req: Request, res: Response) => {
   const appraiser: Appraiser = req.body;
-  appraiserModel.update(appraiser, (err: Error) => {
+  const emp_id: number = Number(req.params.id);
+  console.log(Number(req.params.id));
+  console.log("Updating appraiser with emp_id", emp_id);
+  appraiserModel.update(appraiser, emp_id, (err: Error) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }

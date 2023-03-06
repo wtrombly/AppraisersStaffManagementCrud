@@ -4,6 +4,7 @@ export interface BasicAppraiser {
 }
 
 export interface Appraiser extends BasicAppraiser {
+  emp_id: number;
   first_name: string,
   last_name: string,
   street_number: string,

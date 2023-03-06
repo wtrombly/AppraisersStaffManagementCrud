@@ -69,7 +69,10 @@ appraiserRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, func
 }));
 appraiserRouter.put("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const appraiser = req.body;
-    appraiserModel.update(appraiser, (err) => {
+    const emp_id = Number(req.params.id);
+    console.log(Number(req.params.id));
+    console.log("Updating appraiser with emp_id", emp_id);
+    appraiserModel.update(appraiser, emp_id, (err) => {
         if (err) {
             return res.status(500).json({ "message": err.message });
         }

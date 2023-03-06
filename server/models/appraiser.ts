@@ -107,12 +107,12 @@ export const findAll = (callback: Function) => {
   });
 };
 
-export const update = (appraiser: Appraiser, callback: Function) => {
-  const queryString = `UPDATE Appraiser SET first_name=?, last_name=? WHERE order_id=?`;
+export const update = (appraiser: Appraiser, emp_id: number, callback: Function) => {
+  const queryString = `UPDATE emp SET first_name=?, last_name=? WHERE emp_id=?`;
 
   db.query(
     queryString,
-    [appraiser.first_name, appraiser.last_name, appraiser.emp_id],
+    [appraiser.first_name, appraiser.last_name, emp_id],
     (err, result) => {
       if (err) {
         callback(err);

@@ -94,9 +94,9 @@ const findAll = (callback) => {
     });
 };
 exports.findAll = findAll;
-const update = (appraiser, callback) => {
-    const queryString = `UPDATE Appraiser SET first_name=?, last_name=? WHERE order_id=?`;
-    db_1.db.query(queryString, [appraiser.first_name, appraiser.last_name, appraiser.emp_id], (err, result) => {
+const update = (appraiser, emp_id, callback) => {
+    const queryString = `UPDATE emp SET first_name=?, last_name=? WHERE emp_id=?`;
+    db_1.db.query(queryString, [appraiser.first_name, appraiser.last_name, emp_id], (err, result) => {
         if (err) {
             callback(err);
         }
