@@ -30,3 +30,50 @@ export const create = (order: Order, callback: Function) => {
   );
 };
 
+export const findAll = (callback: Function) => {
+  const queryString = `
+    SELECT
+      o.*
+    FROM assigned_orders AS o`;
+
+  db.query(queryString, (err, result) => {
+    if (err) {
+      callback(err);
+    }
+
+    const rows = <RowDataPacket[]>result;
+    const orders: Order[] = [];
+
+    rows.forEach((row) => {
+      const order: Order = {
+        id: row.id,
+        street_number: row.street_number,
+        street_name: row.street_name,
+        city: row.city,
+        state_id: row.state_id,
+        zip_code: row.zip_code,
+        client_name: row.client_name,
+        order_fee: row.order_fee,
+        notes: row.notes,
+      };
+      orders.push(order);
+    });
+    callback(null, orders);
+  });
+};
+
+
+export const update = (order: Order, id: number, callback: Function) => {
+  const queryString = `UPDATE emp SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=? WHERE id=?`;
+
+  db.query(
+    queryString,
+    [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.id],
+    (err, result) => {
+      if (err) {
+        callback(err);
+      }
+      callback(null);
+    }
+  );
+};
