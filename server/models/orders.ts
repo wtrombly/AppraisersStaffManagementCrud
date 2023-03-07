@@ -77,3 +77,18 @@ export const update = (order: Order, id: number, callback: Function) => {
     }
   );
 };
+
+export const remove = (id: number, callback: Function) => {
+  const queryString = `DELETE FROM emp WHERE id = ?`;
+
+  db.query(queryString, [id], (err, result) => {
+    if (err) {
+      callback(err, 0);
+    } else if (!result) {
+      callback(null, 0);
+    } else {
+      const affectedRows = (<OkPacket>result).affectedRows || 0;
+      callback(null, affectedRows);
+    }
+  });
+};
