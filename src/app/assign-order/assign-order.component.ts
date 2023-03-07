@@ -34,7 +34,7 @@ export class AssignOrderComponent {
         zipCode: ['', Validators.required],
         clientName: ['', Validators.required],
         orderFee: ['', Validators.required],
-        dueDate: ['', Validators.required],
+       /*  dueDate: ['', Validators.required], */
         notes: ['', Validators.required],
       });
 
@@ -61,7 +61,7 @@ export class AssignOrderComponent {
       this.orderForm.controls['orderFee'].setValue(
         this.editData.orderFee
       );
-      this.orderForm.controls['dueDate'].setValue(this.editData.dueDate);
+      /* this.orderForm.controls['dueDate'].setValue(this.editData.dueDate); */
       this.orderForm.controls['notes'].setValue(this.editData.notes);
 
     }
@@ -71,7 +71,7 @@ export class AssignOrderComponent {
     addOrder() {
       if (!this.editData) {
         if (this.orderForm.valid) {
-          this.api.postAppraiser(this.orderForm.value)
+          this.api.postOrder(this.orderForm.value)
           .subscribe({
             next: (res) => {
               alert("Order added successfully");
@@ -89,7 +89,7 @@ export class AssignOrderComponent {
     }
 
     updateOrder() {
-      this.api.putAppraiser(this.orderForm.value, this.editData.id)
+      this.api.putOrder(this.orderForm.value, this.editData.id)
         .subscribe({
           next:(res)=>{
             alert("Order updated successfully");

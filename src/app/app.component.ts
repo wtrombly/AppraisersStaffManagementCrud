@@ -129,7 +129,6 @@ export class AppComponent implements OnInit {
       for(let j = 0; j < this.states.length; j++){
         if(data[i].state_id == this.states[j].id){
           data[i].state_name = this.states[j].name
-          console.log(data[i].state_name)
         }
       }
     }
