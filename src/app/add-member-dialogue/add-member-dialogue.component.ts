@@ -40,7 +40,7 @@ export class AddMemberDialogueComponent implements OnInit {
       va: ['',Validators.required ],
       /* employment_date: ['', ] */
       /* activeOrders: ['', ],*/
-      stateCoverage: ['',Validators.required ],
+
     });
 
     if (this.editData) {
@@ -74,9 +74,6 @@ export class AddMemberDialogueComponent implements OnInit {
         this.editData.employment_date
       ); */
       /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);*/
-      this.staffAppraiserForm.controls['stateCoverage'].setValue(
-        this.editData.stateCoverage
-      );
 
     }
   }
