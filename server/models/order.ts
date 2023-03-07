@@ -1,4 +1,4 @@
-import { Order } from '../types/orders';
+import { Order } from '../types/order';
 import { db } from '../db';
 import { OkPacket, RowDataPacket } from 'mysql2';
 
@@ -28,6 +28,34 @@ export const create = (order: Order, callback: Function) => {
       callback(null, insertId);
     }
   );
+};
+
+export const findOne = (id: number, callback: Function) => {
+  const queryString = `
+    SELECT
+      o.*
+    FROM assigned_orders AS o
+    WHERE o.id=?`;
+
+  db.query(queryString, id, (err, result) => {
+    if (err) {
+      callback(err);
+    }
+
+    const row = (<RowDataPacket>result)[0];
+    const order: Order = {
+      id: row.id,
+      street_number: row.street_number,
+      street_name: row.street_name,
+      city: row.city,
+      state_id: row.state_id,
+      zip_code: row.zip_code,
+      client_name: row.client_name,
+      order_fee: row.order_fee,
+      notes: row.notes,
+    };
+    callback(null, order);
+  });
 };
 
 export const findAll = (callback: Function) => {
