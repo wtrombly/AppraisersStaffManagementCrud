@@ -116,15 +116,17 @@ export const update = (
   emp_id: number,
   callback: Function
 ) => {
-  const queryString = `UPDATE emp SET first_name=?, last_name=?, street_number=?, street_name=?, city=?, zip_code=?, license_level=?, license_number=?, fha=?,va=?, state_id=?, phone=?, email=?, WHERE emp_id=?`;
+  const queryString = `UPDATE emp SET first_name=?, last_name=?, street_number=?, street_name=?, city=?, zip_code=?, license_level=?, license_number=?, fha=?,va=?, state_id=?, phone=?, email=? WHERE emp_id=?`;
 
   db.query(
     queryString,
     [appraiser.first_name, appraiser.last_name, appraiser.street_number, appraiser.street_name, appraiser.city, appraiser.zip_code, appraiser.license_level, appraiser.license_number, appraiser.fha, appraiser.va, appraiser.state_id, appraiser.phone,appraiser.email, emp_id],
     (err, result) => {
       if (err) {
+        console.log(err);
         callback(err);
       }
+      console.log(result);
       callback(null);
     }
   );

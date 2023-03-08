@@ -23,6 +23,9 @@ export class ApiService {
   }
 
   putAppraiser(data : any, id : number){
+    console.log(data);
+    console.log(id);
+
     return this.http.put<any>("http://localhost:3000/appraisers/"+id, data);
   }
 
