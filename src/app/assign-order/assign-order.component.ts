@@ -20,46 +20,46 @@ export class AssignOrderComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: ApiService,
+    @Inject(ApiService) private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialofRef: MatDialogRef<AssignOrderComponent>){}
 
     ngOnInit(): void {
       this.orderForm = this.formBuilder.group({
-        orderNumber: ['', Validators.required],
-        streetNumber: ['', Validators.required],
-        streetName: ['', Validators.required],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        zipCode: ['', Validators.required],
-        clientName: ['', Validators.required],
-        orderFee: ['', Validators.required],
-       /*  dueDate: ['', Validators.required], */
-        notes: ['', Validators.required],
+        id: [''],
+        street_number: [''],
+        street_name: [''],
+        city: [''],
+        state_id: [''],
+        zip_code: [''],
+        client_name: [''],
+        order_fee: [''],
+       /*  dueDate: [''], */
+        notes: [''],
       });
 
 
     if (this.editData) {
       this.actionBtn = 'Update';
-      this.orderForm.controls['orderNumber'].setValue(
-        this.editData.orderNumber
+      this.orderForm.controls['id'].setValue(
+        this.editData.id
       );
-      this.orderForm.controls['streetNumber'].setValue(
-        this.editData.streetNumber
+      this.orderForm.controls['street_number'].setValue(
+        this.editData.street_number
       );
-      this.orderForm.controls['streetName'].setValue(
-        this.editData.streetName
+      this.orderForm.controls['street_name'].setValue(
+        this.editData.street_name
       );
       this.orderForm.controls['state'].setValue(this.editData.state);
       this.orderForm.controls['city'].setValue(this.editData.city);
-      this.orderForm.controls['zipCode'].setValue(
-        this.editData.zipCode
+      this.orderForm.controls['zip_code'].setValue(
+        this.editData.zip_code
       );
-      this.orderForm.controls['clientName'].setValue(
-        this.editData.clientName
+      this.orderForm.controls['client_name'].setValue(
+        this.editData.client_name
       );
-      this.orderForm.controls['orderFee'].setValue(
-        this.editData.orderFee
+      this.orderForm.controls['order_fee'].setValue(
+        this.editData.order_fee
       );
       /* this.orderForm.controls['dueDate'].setValue(this.editData.dueDate); */
       this.orderForm.controls['notes'].setValue(this.editData.notes);

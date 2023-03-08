@@ -11,7 +11,7 @@ export class ApiService {
 
   constructor(private http : HttpClient) { }
 
-  apiurl = "http://localhost:3000/appraisers"
+  apiurl = "http://localhost:3000"
 
    postAppraiser(data : any) {
 
@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   postOrder(data : any) {
-
+    console.log(data);
     return this.http.post<any>("http://localhost:3000/orders/",data);
    }
 

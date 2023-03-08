@@ -4,18 +4,18 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Order Number</mat-label>
-    <input formControlName="orderNumber" matInput placeholder="Order Number" />
+    <input formControlName="id" matInput placeholder="Order Number" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Street Number</mat-label>
     <input
-      formControlName="streetNumber" matInput placeholder="Street Number"/>
+      formControlName="street_number" matInput placeholder="Street Number"/>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Street Name</mat-label>
-    <input formControlName="streetName" matInput placeholder="Street Name" />
+    <input formControlName="street_name" matInput placeholder="Street Name" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -26,8 +26,8 @@
   <div class="outline">
     <mat-form-field appearance="fill">
       <mat-label>State</mat-label>
-      <mat-select formControlName="state" placeholder="Select State">
-        <mat-option *ngFor="let state of states" [value]="state">
+      <mat-select formControlName="state_id" placeholder="Select State">
+        <mat-option *ngFor="let state of states" [value]="state.id">
           {{ state.name }}
         </mat-option>
       </mat-select>
@@ -35,17 +35,17 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Zip Code</mat-label>
-      <input formControlName="zipCode" matInput placeholder="Zip Code" />
+      <input formControlName="zip_code" matInput placeholder="Zip Code" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Client Name</mat-label>
-      <input formControlName="clientName" matInput placeholder="Client Name" />
+      <input formControlName="client_name" matInput placeholder="Client Name" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Order Fee</mat-label>
-      <input formControlName="orderFee" matInput placeholder="Order Fee" />
+      <input formControlName="order_fee" matInput placeholder="Order Fee" />
     </mat-form-field>
 
  <!--    <mat-form-field appearance="outline">

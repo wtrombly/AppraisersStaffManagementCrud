@@ -4,11 +4,14 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (order: Order, callback: Function) => {
   const queryString =
-    'INSERT INTO assigned_orders (street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?)';
+    'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?,?)';
+    console.log("create Order query has begun")
+
 
   db.query(
     queryString,
     [
+      order.id,
       order.street_number,
       order.street_name,
       order.city,
@@ -63,6 +66,7 @@ export const findAll = (callback: Function) => {
     SELECT
       o.*
     FROM assigned_orders AS o`;
+    debugger;
 
   db.query(queryString, (err, result) => {
     if (err) {

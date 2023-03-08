@@ -3,8 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.remove = exports.update = exports.findAll = exports.findOne = exports.create = void 0;
 const db_1 = require("../db");
 const create = (order, callback) => {
-    const queryString = 'INSERT INTO assigned_orders (street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?)';
+    const queryString = 'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?,?)';
+    console.log("create Order query has begun");
     db_1.db.query(queryString, [
+        order.id,
         order.street_number,
         order.street_name,
         order.city,
@@ -53,6 +55,7 @@ const findAll = (callback) => {
     SELECT
       o.*
     FROM assigned_orders AS o`;
+    debugger;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
             callback(err);
