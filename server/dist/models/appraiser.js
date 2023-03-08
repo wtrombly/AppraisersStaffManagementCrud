@@ -98,8 +98,8 @@ const findAll = (callback) => {
 };
 exports.findAll = findAll;
 const update = (appraiser, emp_id, callback) => {
-    const queryString = `UPDATE emp SET first_name=?, last_name=? WHERE emp_id=?`;
-    db_1.db.query(queryString, [appraiser.first_name, appraiser.last_name, emp_id], (err, result) => {
+    const queryString = `UPDATE emp SET first_name=?, last_name=?, street_number=?, street_name=?, city=?, zip_code=?, license_level=?, license_number=?, fha=?,va=?, state_id=?, phone=?, email=?, WHERE emp_id=?`;
+    db_1.db.query(queryString, [appraiser.first_name, appraiser.last_name, appraiser.street_number, appraiser.street_name, appraiser.city, appraiser.zip_code, appraiser.license_level, appraiser.license_number, appraiser.fha, appraiser.va, appraiser.state_id, appraiser.phone, appraiser.email, emp_id], (err, result) => {
         if (err) {
             callback(err);
         }

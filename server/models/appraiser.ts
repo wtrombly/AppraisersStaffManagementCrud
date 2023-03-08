@@ -23,7 +23,6 @@ export const create = (appraiser: Appraiser, callback: Function) => {
       appraiser.va,
       appraiser.phone,
       appraiser.email,
-
     ],
     (err, result) => {
       if (err) {
@@ -103,7 +102,7 @@ export const findAll = (callback: Function) => {
         fha: row.fha,
         va: row.va,
         phone: row.phone,
-      email: row.email,
+        email: row.email,
       };
       appraisers.push(appraiser);
     });
@@ -111,12 +110,16 @@ export const findAll = (callback: Function) => {
   });
 };
 
-export const update = (appraiser: Appraiser, emp_id: number, callback: Function) => {
-  const queryString = `UPDATE emp SET first_name=?, last_name=? WHERE emp_id=?`;
+export const update = (
+  appraiser: Appraiser,
+  emp_id: number,
+  callback: Function
+) => {
+  const queryString = `UPDATE emp SET first_name=?, last_name=?, street_number=?, street_name=?, city=?, zip_code=?, license_level=?, license_number=?, fha=?,va=?, state_id=?, phone=?, email=?, WHERE emp_id=?`;
 
   db.query(
     queryString,
-    [appraiser.first_name, appraiser.last_name, emp_id],
+    [appraiser.first_name, appraiser.last_name, appraiser.street_number, appraiser.street_name, appraiser.city, appraiser.zip_code, appraiser.license_level, appraiser.license_number, appraiser.fha, appraiser.va, appraiser.state_id, appraiser.phone,appraiser.email, emp_id],
     (err, result) => {
       if (err) {
         callback(err);
@@ -140,4 +143,3 @@ export const remove = (emp_id: number, callback: Function) => {
     }
   });
 };
-
