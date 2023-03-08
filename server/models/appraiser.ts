@@ -4,11 +4,12 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (appraiser: Appraiser, callback: Function) => {
   const queryString =
-    'INSERT INTO emp ( first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va, phone, email) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?,?,?)';
+    'INSERT INTO emp ( emp_id,first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va, phone, email) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?,?,?,?)';
 
   db.query(
     queryString,
     [
+      appraiser.emp_id,
       appraiser.first_name,
       appraiser.last_name,
       appraiser.street_number,

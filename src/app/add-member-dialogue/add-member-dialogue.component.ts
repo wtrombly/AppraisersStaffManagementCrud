@@ -27,6 +27,7 @@ export class AddMemberDialogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({
+      emp_id: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       street_number: ['',Validators.required ],
@@ -47,6 +48,10 @@ export class AddMemberDialogueComponent implements OnInit {
 
     if (this.editData) {
       this.actionBtn = 'Update';
+
+      this.staffAppraiserForm.controls['emp_id'].setValue(
+        this.editData.emp_id
+      );
       this.staffAppraiserForm.controls['first_name'].setValue(
         this.editData.first_name
       );
