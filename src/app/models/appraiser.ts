@@ -15,5 +15,7 @@ export interface Appraiser  {
   license_number: string,
   fha: boolean,
   va: boolean,
+  phone: string,
+  email: string,
   state_coverage: string,
 }

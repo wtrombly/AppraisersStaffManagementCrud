@@ -38,6 +38,8 @@ export class AddMemberDialogueComponent implements OnInit {
       license_number: ['',Validators.required ],
       fha: ['',Validators.required ],
       va: ['',Validators.required ],
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
       /* employment_date: ['', ] */
       /* activeOrders: ['', ],*/
 
@@ -70,6 +72,9 @@ export class AddMemberDialogueComponent implements OnInit {
       );
       this.staffAppraiserForm.controls['fha'].setValue(this.editData.fha);
       this.staffAppraiserForm.controls['va'].setValue(this.editData.va);
+      this.staffAppraiserForm.controls['phone'].setValue(this.editData.phone);
+      this.staffAppraiserForm.controls['email'].setValue(this.editData.email);
+
       /* this.staffAppraiserForm.controls['employment_date'].setValue(
         this.editData.employment_date
       ); */

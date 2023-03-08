@@ -17,5 +17,7 @@ export interface Appraiser extends BasicAppraiser {
   license_number: string,
   fha: boolean,
   va: boolean,
+  phone: string,
+  email: string,
 
 }

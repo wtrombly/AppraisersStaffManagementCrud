@@ -4,7 +4,7 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (appraiser: Appraiser, callback: Function) => {
   const queryString =
-    'INSERT INTO emp ( first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?)';
+    'INSERT INTO emp ( first_name, last_name, street_number, street_name, city, state_id, zip_code,  license_level, license_number, fha, va, phone, email) VALUES (?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?,?,?)';
 
   db.query(
     queryString,
@@ -21,6 +21,8 @@ export const create = (appraiser: Appraiser, callback: Function) => {
       appraiser.license_number,
       appraiser.fha,
       appraiser.va,
+      appraiser.phone,
+      appraiser.email,
 
     ],
     (err, result) => {
@@ -62,7 +64,8 @@ export const findOne = (emp_id: number, callback: Function) => {
       license_number: row.license_number,
       fha: row.fha,
       va: row.va,
-
+      phone: row.phone,
+      email: row.email,
     };
     callback(null, appraiser);
   });
@@ -99,6 +102,8 @@ export const findAll = (callback: Function) => {
         license_number: row.license_number,
         fha: row.fha,
         va: row.va,
+        phone: row.phone,
+      email: row.email,
       };
       appraisers.push(appraiser);
     });

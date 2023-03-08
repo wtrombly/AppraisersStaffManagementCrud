@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.remove = exports.update = exports.findAll = exports.findOne = exports.create = void 0;
 const db_1 = require("../db");
 const create = (order, callback) => {
-    const queryString = 'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?,?)';
+    const queryString = 'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes, assigned_emp_id) VALUES (?,?,?,?,?,?,?,?,?,?)';
     console.log("create Order query has begun");
     db_1.db.query(queryString, [
         order.id,
@@ -15,6 +15,7 @@ const create = (order, callback) => {
         order.client_name,
         order.order_fee,
         order.notes,
+        order.assigned_emp_id,
     ], (err, result) => {
         if (err) {
             callback(err);
@@ -45,6 +46,7 @@ const findOne = (id, callback) => {
             client_name: row.client_name,
             order_fee: row.order_fee,
             notes: row.notes,
+            assigned_emp_id: row.assigned_emp_id,
         };
         callback(null, order);
     });
@@ -73,6 +75,7 @@ const findAll = (callback) => {
                 client_name: row.client_name,
                 order_fee: row.order_fee,
                 notes: row.notes,
+                assigned_emp_id: row.assigned_emp_id,
             };
             orders.push(order);
         });
@@ -81,8 +84,8 @@ const findAll = (callback) => {
 };
 exports.findAll = findAll;
 const update = (order, id, callback) => {
-    const queryString = `UPDATE emp SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=? WHERE id=?`;
-    db_1.db.query(queryString, [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.id], (err, result) => {
+    const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, assigned_emp_id=?, WHERE id=?`;
+    db_1.db.query(queryString, [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.assigned_emp_id, order.id], (err, result) => {
         if (err) {
             callback(err);
         }
@@ -91,7 +94,7 @@ const update = (order, id, callback) => {
 };
 exports.update = update;
 const remove = (id, callback) => {
-    const queryString = `DELETE FROM emp WHERE id = ?`;
+    const queryString = `DELETE FROM assigned_orders WHERE id = ?`;
     db_1.db.query(queryString, [id], (err, result) => {
         if (err) {
             callback(err, 0);

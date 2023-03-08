@@ -4,7 +4,7 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 
 export const create = (order: Order, callback: Function) => {
   const queryString =
-    'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes) VALUES (?,?,?,?,?,?,?,?,?)';
+    'INSERT INTO assigned_orders (id, street_number, street_name, city, state_id, zip_code, client_name, order_fee, notes, assigned_emp_id) VALUES (?,?,?,?,?,?,?,?,?,?)';
     console.log("create Order query has begun")
 
 
@@ -20,6 +20,8 @@ export const create = (order: Order, callback: Function) => {
       order.client_name,
       order.order_fee,
       order.notes,
+      order.assigned_emp_id,
+
     ],
     (err, result) => {
       if (err) {
@@ -56,6 +58,7 @@ export const findOne = (id: number, callback: Function) => {
       client_name: row.client_name,
       order_fee: row.order_fee,
       notes: row.notes,
+      assigned_emp_id: row.assigned_emp_id,
     };
     callback(null, order);
   });
@@ -87,6 +90,7 @@ export const findAll = (callback: Function) => {
         client_name: row.client_name,
         order_fee: row.order_fee,
         notes: row.notes,
+        assigned_emp_id: row.assigned_emp_id,
       };
       orders.push(order);
     });
@@ -96,11 +100,11 @@ export const findAll = (callback: Function) => {
 
 
 export const update = (order: Order, id: number, callback: Function) => {
-  const queryString = `UPDATE emp SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=? WHERE id=?`;
+  const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, assigned_emp_id=?, WHERE id=?`;
 
   db.query(
     queryString,
-    [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.id],
+    [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.assigned_emp_id, order.id],
     (err, result) => {
       if (err) {
         callback(err);
@@ -111,7 +115,7 @@ export const update = (order: Order, id: number, callback: Function) => {
 };
 
 export const remove = (id: number, callback: Function) => {
-  const queryString = `DELETE FROM emp WHERE id = ?`;
+  const queryString = `DELETE FROM assigned_orders WHERE id = ?`;
 
   db.query(queryString, [id], (err, result) => {
     if (err) {
