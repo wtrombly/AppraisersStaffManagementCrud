@@ -114,7 +114,9 @@ export class AddMemberDialogueComponent implements OnInit {
   }
 
   updateAppraiser() {
-    this.api.putAppraiser(this.staffAppraiserForm.value, this.editData.id)
+    console.log("update appraiser", this.staffAppraiserForm.value);
+    console.log(this.editData.emp_id);
+    this.api.putAppraiser(this.staffAppraiserForm.value, this.editData.emp_id)
       .subscribe({
         next:(res)=>{
           alert("Profile updated successfully");
