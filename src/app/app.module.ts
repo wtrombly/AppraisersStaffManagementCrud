@@ -20,13 +20,17 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { AssignOrderComponent } from './assign-order/assign-order.component';
+import { OrdersViewComponent } from './orders-view/orders-view.component';
+import { Routes } from '@angular/router';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddMemberDialogueComponent,
-    AssignOrderComponent
+    AssignOrderComponent,
+    OrdersViewComponent
   ],
   imports: [
     BrowserModule,
