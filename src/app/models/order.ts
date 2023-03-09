@@ -9,5 +9,5 @@ export interface Order {
    client_name: string,
   order_fee: number,
   notes: string,
-  assigned_emp_id: number,
+  emp_id: number,
 }

@@ -29,7 +29,7 @@ export class OrdersViewComponent implements OnInit {
     'client_name',
     'order_fee',
     'notes',
-    'assigned_emp_id',
+    'emp_id',
   ];
 
   dataSource!: MatTableDataSource<Order>;
@@ -40,6 +40,19 @@ export class OrdersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrders();
+  }
+
+  openOrdersDialog() {
+    this.dialog
+      .open(AssignOrderComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllOrders();
+        }
+      });
   }
 
   getAllOrders() {
