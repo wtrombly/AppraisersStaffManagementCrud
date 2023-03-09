@@ -1,12 +1,11 @@
-<p>appraisers-view works!</p>
-
-  <button mat-raised-button class = "addMember" color="warn" (click)="openAppraiserDialog()">Add Member</button>
-    <button mat-raised-button class = "addOrder" color="warn" (click)="openOrdersDialog()">Assign Order</button>
 
 
 
 <div class = "container">
   <div style = "margin-top: 10px;">
+    <button mat-raised-button class = "addMember" color="warn" (click)="openAppraiserDialog()">Add Member</button>
+    <button mat-raised-button class = "addOrder" color="warn" (click)="openOrdersDialog()">Assign Order</button>
+
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
