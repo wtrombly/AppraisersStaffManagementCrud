@@ -66,12 +66,11 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Appraiser</mat-label>
-      <mat-select formControlName="state_id" placeholder="Select State">
-        <mat-option *ngFor="let state of states" [value]="state.id">
-          {{ state.name }}
-        </mat-option>
+      <mat-select [(ngModel)]="dataItems">
+        <mat-option *ngFor="let item of dataItems" [value]="item.emp_id">{{ item.first_name + " " + item.last_name }}</mat-option>
       </mat-select>
     </mat-form-field>
+
 
 
   </div>

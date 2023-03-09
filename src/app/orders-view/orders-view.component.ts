@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { States } from '../models/states';
 import { AssignOrderComponent } from '../assign-order/assign-order.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AppraiserService } from '../services/appraiser.service';
+import { Appraiser } from '../models/appraiser';
 
 @Component({
   selector: 'app-orders-view',
@@ -40,6 +42,7 @@ export class OrdersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrders();
+   
   }
 
   openOrdersDialog() {
