@@ -22,6 +22,7 @@ import {MatSortModule} from '@angular/material/sort';
 import { AssignOrderComponent } from './assign-order/assign-order.component';
 import { OrdersViewComponent } from './orders-view/orders-view.component';
 import { Routes } from '@angular/router';
+import { AppraisersViewComponent } from './appraisers-view/appraisers-view.component';
 
 
 
@@ -30,7 +31,8 @@ import { Routes } from '@angular/router';
     AppComponent,
     AddMemberDialogueComponent,
     AssignOrderComponent,
-    OrdersViewComponent
+    OrdersViewComponent,
+    AppraisersViewComponent
   ],
   imports: [
     BrowserModule,
