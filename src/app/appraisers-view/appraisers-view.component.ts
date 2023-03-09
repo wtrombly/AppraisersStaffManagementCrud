@@ -16,9 +16,11 @@ import { AddMemberDialogueComponent } from '../add-member-dialogue/add-member-di
   styleUrls: ['./appraisers-view.component.scss']
 })
 export class AppraisersViewComponent implements OnInit {
-  title = 'AppraisersStaffManagementCrud';
 
-  appraiserEditID!: number;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  title = 'AppraisersStaffManagementCrud';
 
   displayedColumns: string[] = [
     'emp_id',
@@ -36,9 +38,6 @@ export class AppraisersViewComponent implements OnInit {
     'action',
   ];
   dataSource!: MatTableDataSource<Appraiser>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   states = States;
 
