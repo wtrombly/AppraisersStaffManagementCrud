@@ -18,6 +18,8 @@ import { Appraiser } from './models/appraiser';
 export class AppComponent implements OnInit {
   title = 'AppraisersStaffManagementCrud';
 
+  appraiserEditID!: number;
+
   displayedColumns: string[] = [
     'emp_id',
     'first_name',
@@ -87,7 +89,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  editAppraiser(row: any) {
+  editAppraiser(row: number) {
+    console.log(row)
     this.dialog
       .open(AddMemberDialogueComponent, {
         width: '30%',
@@ -101,8 +104,8 @@ export class AppComponent implements OnInit {
       });
   }
 
-  deleteAppraiser(id: number) {
-    this.api.deleteAppraiser(id).subscribe({
+  deleteAppraiser(emp_id: number) {
+    this.api.deleteAppraiser(emp_id).subscribe({
       next: (res) => {
         alert('Appraiser successfully deleted');
         this.getAllAppraisers();

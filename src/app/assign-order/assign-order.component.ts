@@ -4,6 +4,7 @@ import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Appraiser } from '../models/appraiser';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class AssignOrderComponent {
   actionBtn: string = 'Assign Order';
   public states = States;
   statesFormControl = new FormControl('');
+
+  public appraisers: Appraiser[] = [];
 
 
   constructor(
