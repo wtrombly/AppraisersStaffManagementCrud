@@ -46,6 +46,7 @@ export class OrdersViewComponent implements OnInit {
     this.api.getOrder().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res.data);
+        this.getStateResidenceName(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.log(this.dataSource);
@@ -89,6 +90,18 @@ export class OrdersViewComponent implements OnInit {
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  getStateResidenceName(dataSource: MatTableDataSource<Order>): any {
+    const data = this.dataSource.data;
+
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < this.states.length; j++) {
+        if (data[i].state_id == this.states[j].id) {
+          data[i].state_name = this.states[j].name;
+        }
+      }
     }
   }
 }

@@ -4,6 +4,7 @@ export interface Order {
   street_name: string,
   city: string,
   state_id: number,
+  state_name: string,
   zip_code: number,
    client_name: string,
   order_fee: number,
