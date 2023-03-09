@@ -13,11 +13,11 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './orders-view.component.html',
   styleUrls: ['./orders-view.component.scss'],
 })
-export class OrdersViewComponent implements OnInit{
+export class OrdersViewComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  title = 'OrdersManagementCRUD';
+  title = 'Orders Management CRUD';
 
   displayedColumns: string[] = [
     'id',
@@ -56,9 +56,8 @@ export class OrdersViewComponent implements OnInit{
     });
   }
 
-
   editOrder(row: number) {
-    console.log(row)
+    console.log(row);
     this.dialog
       .open(AssignOrderComponent, {
         width: '30%',
@@ -92,8 +91,4 @@ export class OrdersViewComponent implements OnInit{
       this.dataSource.paginator.firstPage();
     }
   }
-
-
-
-
 }
