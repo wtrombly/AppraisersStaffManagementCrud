@@ -4,7 +4,7 @@ import { ApiService } from '../services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { States, State } from '../models/states';
+import { States } from '../models/states';
 import { Appraiser } from '../models/appraiser';
 import { AssignOrderComponent } from '../assign-order/assign-order.component';
 import { AddMemberDialogueComponent } from '../add-member-dialogue/add-member-dialogue.component';
