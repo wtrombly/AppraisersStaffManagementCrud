@@ -1,1 +1,89 @@
-<p>add-client-dialogue works!</p>
+<h1 mat-dialog-title>Add Staff Appraiser</h1>
+<div mat-dialog-content>
+  <form [formGroup]="clientForm">
+    <mat-form-field appearance="outline">
+      <mat-label>ID #</mat-label>
+      <input formControlName="client_id" matInput placeholder="ID Number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Business Name</mat-label>
+      <input
+        formControlName="business_name"
+        matInput
+        placeholder="Business Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input
+        formControlName="poc_first_name"
+        matInput
+        placeholder="First Name"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input formControlName="poc_last_name" matInput placeholder="Last Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Street Number</mat-label>
+      <input
+        formControlName="street_number"
+        matInput
+        placeholder="Street Number"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Street Name</mat-label>
+      <input formControlName="street_name" matInput placeholder="Street Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input formControlName="city" matInput placeholder="City" />
+    </mat-form-field>
+
+    <div class="outline">
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state_id" placeholder="Select State">
+          <mat-option *ngFor="let state of states" [value]="state.id">
+            {{ state.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Zip Code</mat-label>
+        <input formControlName="zip_code" matInput placeholder="Zip Code" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input formControlName="poc_phone" matInput placeholder="Phone" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Email" />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      (click)="addClient()"
+    >
+      {{ actionBtn }}
+    </button>
+  </div>
+</div>

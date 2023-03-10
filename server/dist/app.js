@@ -32,6 +32,7 @@ const bodyParser = __importStar(require("body-parser"));
 const appraiserRouter_1 = require("./routes/appraiserRouter");
 const cors_1 = __importDefault(require("cors"));
 const orderRouter_1 = require("./routes/orderRouter");
+const clientRouter_1 = require("./routes/clientRouter");
 const app = (0, express_1.default)();
 dotenv.config();
 // any website can access this locally due to this line of code
@@ -39,6 +40,7 @@ app.use((0, cors_1.default)());
 app.use(bodyParser.json());
 app.use('/appraisers', appraiserRouter_1.appraiserRouter);
 app.use('/orders', orderRouter_1.orderRouter);
+app.use('/clients', clientRouter_1.clientRouter);
 app.listen(process.env.PORT, () => {
     console.log('Node server started running');
 });

@@ -1,4 +1,3 @@
-import { State } from './../models/states';
 import { ApiService } from 'src/app/services/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { States } from 'src/app/models/states';
@@ -79,12 +78,6 @@ export class AddMemberDialogueComponent implements OnInit {
       this.staffAppraiserForm.controls['va'].setValue(this.editData.va);
       this.staffAppraiserForm.controls['phone'].setValue(this.editData.phone);
       this.staffAppraiserForm.controls['email'].setValue(this.editData.email);
-
-      /* this.staffAppraiserForm.controls['employment_date'].setValue(
-        this.editData.employment_date
-      ); */
-      /* this.staffAppraiserForm.controls['activeOrders'].setValue(this.editData.activeOrders);*/
-
     }
   }
 
@@ -119,7 +112,7 @@ export class AddMemberDialogueComponent implements OnInit {
     this.api.putAppraiser(this.staffAppraiserForm.value, this.editData.emp_id)
       .subscribe({
         next:(res)=>{
-          alert("Profile updated successfully");
+          alert("Appraiser Profile updated successfully");
           this.staffAppraiserForm.reset;
           this.dialofRef.close('update');
         },

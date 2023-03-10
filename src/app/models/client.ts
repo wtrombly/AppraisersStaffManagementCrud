@@ -1,4 +1,5 @@
 export interface Client  {
+  client_id: number,
   business_name: string;
   poc_first_name: string,
   poc_last_name: string,

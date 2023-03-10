@@ -1,15 +1,37 @@
-
-
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>supervisor_account</mat-icon>
-    </button>
-    <span>Appraiser Staff Manager</span>
-    <!-- <span class="example-spacer"></span> -->
-    <a routerLink="/appraisers"><button mat-raised-button class = "appraisersButton" color="warn" >Appraisers</button></a>
-    <a routerLink="/orders"><button mat-raised-button class = "ordersButton" color="warn" >Orders</button></a>
-
-  </mat-toolbar>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>supervisor_account</mat-icon>
+  </button>
+  <span>Appraiser Staff Manager</span>
+  <!-- <span class="example-spacer"></span> -->
+  <a routerLink="/appraisers"
+    ><button mat-raised-button
+     class="appraisersButton"
+      color="warn"
+      >
+      Appraisers
+    </button></a
+  >
+  <a routerLink="/orders"
+    ><button mat-raised-button
+    class="ordersButton"
+     color="warn"
+     >
+      Orders
+    </button></a
+  >
+  <a routerLink="/clients"
+    ><button mat-raised-button
+     class="clientsButton"
+      color="warn"
+      >
+      Clients
+    </button></a
+  >
+</mat-toolbar>
 
 <router-outlet></router-outlet>
-

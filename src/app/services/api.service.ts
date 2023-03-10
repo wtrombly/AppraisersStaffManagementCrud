@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -59,10 +57,11 @@ postClient(data : any) {
  }
 
  getClient() {
+  console.log("getClient ApI called");
   return this.http.get<any>("http://localhost:3000/clients");
 }
 
-putClients(data : any, id : number){
+putClient(data : any, id : number){
   return this.http.put<any>("http://localhost:3000/clients/"+id, data);
 }
 

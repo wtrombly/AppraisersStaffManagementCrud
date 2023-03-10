@@ -1,47 +1,47 @@
 
 import express, {Request, Response} from "express";
-import * as orderModel from "../models/order";
-import {Order } from "../types/order";
-const orderRouter = express.Router();
+import * as clientModel from "../models/client";
+import { Client } from "../types/client";
+const clientRouter = express.Router();
 
-orderRouter.get("/", async (req: Request, res: Response) => {
-  orderModel.findAll((err: Error, orders: Order[]) => {
+clientRouter.get("/", async (req: Request, res: Response) => {
+  clientModel.findAll((err: Error, clients: Client[]) => {
     if (err) {
       return res.status(500).json({"errorMessage": err.message});
     }
-    console.log("orderRouter.get function has been called")
-    res.status(200).json({"data": orders});
+    console.log("clientRouter.get function has been called")
+    res.status(200).json({"data": clients});
   });
 });
 
 
-orderRouter.post("/", async (req: Request, res: Response) => {
-  const newOrder: Order = req.body;
-  orderModel.create(newOrder, (err: Error, id: number) => {
+clientRouter.post("/", async (req: Request, res: Response) => {
+  const newClient: Client = req.body;
+  clientModel.create(newClient, (err: Error, client_id: number) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }
 
-    res.status(200).json({"id": id});
+    res.status(200).json({"id": client_id});
   });
 });
 
-orderRouter.get("/:id", async (req: Request, res: Response) => {
+clientRouter.get("/:id", async (req: Request, res: Response) => {
   const id: number = Number(req.params.id);
-  orderModel.findOne(id, (err: Error, order: Order) => {
+  clientModel.findOne(id, (err: Error, client: Client) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }
-    res.status(200).json({"data": order});
+    res.status(200).json({"data": client});
   })
 });
 
-orderRouter.put("/:id",  async (req: Request, res: Response) => {
-  const order: Order = req.body;
+clientRouter.put("/:id",  async (req: Request, res: Response) => {
+  const client: Client = req.body;
   const id: number = Number(req.params.id);
   console.log(Number(req.params.id));
   console.log("Updating order with id", id);
-  orderModel.update(order, id, (err: Error) => {
+  clientModel.update(client, id, (err: Error) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }
@@ -50,10 +50,10 @@ orderRouter.put("/:id",  async (req: Request, res: Response) => {
   })
 });
 
-orderRouter.delete("/:id", async (req: Request, res: Response) => {
+clientRouter.delete("/:id", async (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id);
 
-  orderModel.remove(id, (err: Error) => {
+  clientModel.remove(id, (err: Error) => {
     if (err) {
       return res.status(500).json({"message": err.message});
     }
@@ -61,4 +61,4 @@ orderRouter.delete("/:id", async (req: Request, res: Response) => {
   });
 });
 
-export {orderRouter};
+export {clientRouter};
