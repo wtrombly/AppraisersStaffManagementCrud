@@ -23,6 +23,8 @@ import { AssignOrderComponent } from './assign-order/assign-order.component';
 import { OrdersViewComponent } from './orders-view/orders-view.component';
 import { Routes } from '@angular/router';
 import { AppraisersViewComponent } from './appraisers-view/appraisers-view.component';
+import { ClientsViewComponent } from './clients-view/clients-view.component';
+import { AddClientDialogueComponent } from './add-client-dialogue/add-client-dialogue.component';
 
 
 
@@ -32,7 +34,9 @@ import { AppraisersViewComponent } from './appraisers-view/appraisers-view.compo
     AddMemberDialogueComponent,
     AssignOrderComponent,
     OrdersViewComponent,
-    AppraisersViewComponent
+    AppraisersViewComponent,
+    ClientsViewComponent,
+    AddClientDialogueComponent
   ],
   imports: [
     BrowserModule,

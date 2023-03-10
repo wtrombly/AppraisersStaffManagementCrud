@@ -16,25 +16,15 @@ export class AppraiserService implements OnInit{
 
   states = States;
   dataSource!: MatTableDataSource<Appraiser>;
+  singleAppraiser!: MatTableDataSource<Appraiser>;
 
   dataItems: object[] = [];
 
-  private siblingMsg = new Subject<string>();
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
 
-  }
-
-  public getMessage(): Observable<string> {
-    return this.siblingMsg.asObservable();
-  }
-  /*
-   * @param {string} message : siblingMsg
-   */
-  public updateMessage(message: string): void {
-    this.siblingMsg.next(message);
   }
 
   getAllAppraisersArray(): Observable<any[]> {
@@ -47,7 +37,6 @@ export class AppraiserService implements OnInit{
           dataSource.data.forEach(element => {
             dataItems.push(element)
           });
-          console.log("dataItems", dataItems);
           observer.next(dataItems);
         },
         error: (err) => {
@@ -58,6 +47,26 @@ export class AppraiserService implements OnInit{
         }
       });
     });
+  }
+
+  getAppraiser(emp_id: number): any {
+    this.api.getAppraiser().subscribe({
+      next: (res) => {
+        this.singleAppraiser = res.data;
+
+      },
+      error: (err) => {
+        alert('Error while fetching the data');
+      },
+
+    });return this.singleAppraiser;
+  }
+
+  verifyAppraiserCoverage(emp_id: number, orderId: number) {
+     this.singleAppraiser = this.getAppraiser(emp_id);
+   // if state_name of appraiser == state_name of order,
+   // return true
+   // else return false
   }
 
 

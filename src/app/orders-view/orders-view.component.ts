@@ -42,7 +42,7 @@ export class OrdersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrders();
-   
+
   }
 
   openOrdersDialog() {
@@ -65,7 +65,6 @@ export class OrdersViewComponent implements OnInit {
         this.getStateResidenceName(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.dataSource);
       },
       error: (err) => {
         alert('Error while fetching the data');

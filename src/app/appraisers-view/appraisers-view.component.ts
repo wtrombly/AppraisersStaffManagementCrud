@@ -78,7 +78,6 @@ export class AppraisersViewComponent implements OnInit {
         this.getStateResidenceName(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.dataSource);
       },
       error: (err) => {
         alert('Error while fetching the data');
@@ -86,8 +85,8 @@ export class AppraisersViewComponent implements OnInit {
     });
   }
 
+
   editAppraiser(row: number) {
-    console.log(row);
     this.dialog
       .open(AddMemberDialogueComponent, {
         width: '30%',
@@ -122,6 +121,7 @@ export class AppraisersViewComponent implements OnInit {
     }
   }
 
+  // for obtaining the state residence of all appraisers and placing that in an array
   getStateResidenceName(dataSource: MatTableDataSource<Appraiser>): any {
     const data = this.dataSource.data;
 
