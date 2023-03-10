@@ -31,6 +31,7 @@ export class ClientsViewComponent implements OnInit {
     'zip_code',
     'poc_phone',
     'email',
+    'action'
   ];
 
   clientDataSource!: MatTableDataSource<Client>;
@@ -85,8 +86,8 @@ export class ClientsViewComponent implements OnInit {
       });
   }
 
-  deleteClient(emp_id: number) {
-    this.api.deleteClient(emp_id).subscribe({
+  deleteClient(client_id: number) {
+    this.api.deleteClient(client_id).subscribe({
       next: (res) => {
         alert('Client successfully deleted');
         this.getAllClients();

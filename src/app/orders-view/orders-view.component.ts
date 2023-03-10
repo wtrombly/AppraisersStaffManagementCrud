@@ -32,6 +32,7 @@ export class OrdersViewComponent implements OnInit {
     'order_fee',
     'notes',
     'emp_id',
+    'action'
   ];
 
   dataSource!: MatTableDataSource<Order>;
