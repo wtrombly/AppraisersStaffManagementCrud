@@ -17,7 +17,7 @@ export class ClientsViewComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  title = ' Client Staff Management Crud';
+  title = ' Client Management Crud';
 
   displayedColumns: string[] = [
     'client_id',
