@@ -35,6 +35,7 @@ export class AssignOrderComponent implements OnInit {
   ) {
     this.appraiserService.getAllAppraisersArray().subscribe((dataItems) => {
       this.dataItems = dataItems;
+      console.log(dataItems);
     });
   }
 

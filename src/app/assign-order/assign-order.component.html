@@ -66,7 +66,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Appraiser</mat-label>
-      <mat-select [(ngModel)]="dataItems">
+      <mat-select [(ngModel)]="dataItems" placeholder="Leave blank if not assigned">
         <mat-option *ngFor="let item of dataItems" [value]="item.emp_id">{{ item.first_name + " " + item.last_name }}</mat-option>
       </mat-select>
     </mat-form-field>
