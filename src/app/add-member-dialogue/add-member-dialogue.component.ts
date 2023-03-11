@@ -93,11 +93,14 @@ export class AddMemberDialogueComponent implements OnInit {
             this.staffAppraiserForm.reset();
             this.dialofRef.close('save');
           },
-          error: () => {
-            console.error();
-
-
-            alert("Error while adding appraiser!!");
+          error: (err) => {
+            const errorMessageNewAppraiserSameId: string =  "Duplicate entry"
+            console.log(err.error.message);
+            if(err.error.message.includes(errorMessageNewAppraiserSameId)){
+              alert("This appraiser ID has already been used.");
+            } else {
+              alert('Error while adding appraiser!!');
+            }
           },
         });
       }
