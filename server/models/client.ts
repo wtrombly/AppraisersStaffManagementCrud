@@ -101,14 +101,16 @@ export const findAll = (callback: Function) => {
   });
 };
 
-export const update = (client: Client, client_id: number, callback: Function) => {
-  const queryString = `UPDATE clients SET client_id=?, business_name=?, poc_first_name=?, poc_last_name=?, street_number=?, street_name=?, city=?, state_id=?, zip_code=?, poc_phone=?, email=?, WHERE client_id=?`;
+export const update = (
+  client: Client,
+  client_id: number,
+  callback: Function
+) => {
+  const queryString = `UPDATE clients SET client_id=?, business_name=?, poc_first_name=?, poc_last_name=?, street_number=?, street_name=?, city=?, state_id=?, zip_code=?, poc_phone=?, email=? WHERE client_id=?`;
 
   db.query(
     queryString,
-    [
-      client.client_id,
-      client.business_name,
+    [client.business_name,
       client.poc_first_name,
       client.poc_last_name,
       client.street_number,
@@ -118,15 +120,18 @@ export const update = (client: Client, client_id: number, callback: Function) =>
       client.zip_code,
       client.poc_phone,
       client.email,
-    ],
+      client.client_id],
     (err, result) => {
       if (err) {
+        console.log(err);
         callback(err);
       }
+      console.log(result);
       callback(null);
     }
   );
 };
+
 
 export const remove = (client_id: number, callback: Function) => {
   const queryString = `DELETE FROM clients WHERE id = ?`;

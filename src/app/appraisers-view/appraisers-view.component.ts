@@ -106,8 +106,14 @@ export class AppraisersViewComponent implements OnInit {
         alert('Appraiser successfully deleted');
         this.getAllAppraisers();
       },
-      error: () => {
-        alert('Error while removing appraiser!!');
+      error: (err) => {
+        const errorMessageAssignedOrder: string = "Cannot delete or update a parent row: a foreign key constraint fails (`staff_appraiser`.`assigned_orders`, CONSTRAINT `emp_id` FOREIGN KEY (`emp_id`) REFERENCES `emp` (`emp_id`))";
+        console.log(err.error.message);
+        if(err.error.message === errorMessageAssignedOrder){
+          alert('This appraiser can not have assigned orders. Please remove assigned orders before deleting.')
+        } else {
+          alert('Error while removing appraiser!!');
+        }
       },
     });
   }

@@ -91,11 +91,11 @@ export class OrdersViewComponent implements OnInit {
   deleteOrder(id: number) {
     this.api.deleteOrder(id).subscribe({
       next: (res) => {
-        alert('Appraiser successfully deleted');
+        alert('Order successfully deleted');
         this.getAllOrders();
       },
       error: () => {
-        alert('Error while removing appraiser!!');
+        alert('Error while removing order!!');
       },
     });
   }
