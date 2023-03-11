@@ -100,7 +100,7 @@ export const findAll = (callback: Function) => {
 
 
 export const update = (order: Order, id: number, callback: Function) => {
-  const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, emp_id=?, WHERE id=?`;
+  const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, emp_id=? WHERE id=?`;
 
   db.query(
     queryString,

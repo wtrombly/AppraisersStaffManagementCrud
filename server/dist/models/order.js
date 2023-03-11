@@ -84,7 +84,7 @@ const findAll = (callback) => {
 };
 exports.findAll = findAll;
 const update = (order, id, callback) => {
-    const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, emp_id=?, WHERE id=?`;
+    const queryString = `UPDATE assigned_orders SET street_number=?, street_name=?, city=?, state_id=?, zip_code=?,client_name=?, order_fee=?, notes=?, emp_id=? WHERE id=?`;
     db_1.db.query(queryString, [order.street_number, order.street_name, order.city, order.state_id, order.zip_code, order.client_name, order.order_fee, order.notes, order.emp_id, order.id], (err, result) => {
         if (err) {
             callback(err);
