@@ -4,6 +4,8 @@ import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppraiserService } from '../services/appraiser.service';
+import { Appraiser } from '../models/appraiser';
 
 @Component({
   selector: 'app-add-member-dialogue',
@@ -17,40 +19,41 @@ export class AddMemberDialogueComponent implements OnInit {
   public states = States;
   statesFormControl = new FormControl('');
   multipleSelectList = States;
+  dataItems: Appraiser[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     @Inject(ApiService) private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialofRef: MatDialogRef<AddMemberDialogueComponent>){}
+    private dialofRef: MatDialogRef<AddMemberDialogueComponent>,
+    private appraiserService: AppraiserService
+  ) {
+    this.appraiserService.getAllAppraisersArray().subscribe((dataItems) => {
+      this.dataItems = dataItems;
+    });
+  }
 
   ngOnInit(): void {
     this.staffAppraiserForm = this.formBuilder.group({
       emp_id: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      street_number: ['',Validators.required ],
-      street_name: ['',Validators.required],
-      city: ['',Validators.required ],
-      state_id: ['',Validators.required ],
-      zip_code: ['',Validators.required ],
-      license_level: ['',Validators.required ],
-      license_number: ['',Validators.required ],
-      fha: ['',Validators.required ],
-      va: ['',Validators.required ],
+      street_number: ['', Validators.required],
+      street_name: ['', Validators.required],
+      city: ['', Validators.required],
+      state_id: ['', Validators.required],
+      zip_code: ['', Validators.required],
+      license_level: ['', Validators.required],
+      license_number: ['', Validators.required],
+      fha: ['', Validators.required],
+      va: ['', Validators.required],
       phone: ['', Validators.required],
       email: ['', Validators.required],
-      /* employment_date: ['', ] */
-      /* activeOrders: ['', ],*/
-
     });
 
     if (this.editData) {
       this.actionBtn = 'Update';
-
-      this.staffAppraiserForm.controls['emp_id'].setValue(
-        this.editData.emp_id
-      );
+      this.staffAppraiserForm.controls['emp_id'].setValue(this.editData.emp_id);
       this.staffAppraiserForm.controls['first_name'].setValue(
         this.editData.first_name
       );
@@ -63,7 +66,9 @@ export class AddMemberDialogueComponent implements OnInit {
       this.staffAppraiserForm.controls['street_name'].setValue(
         this.editData.street_name
       );
-      this.staffAppraiserForm.controls['state_id'].setValue(this.editData.state_id );
+      this.staffAppraiserForm.controls['state_id'].setValue(
+        this.editData.state_id
+      );
       this.staffAppraiserForm.controls['city'].setValue(this.editData.city);
       this.staffAppraiserForm.controls['zip_code'].setValue(
         this.editData.zip_code
@@ -84,25 +89,22 @@ export class AddMemberDialogueComponent implements OnInit {
   addAppraiser() {
     if (!this.editData) {
       if (this.staffAppraiserForm.valid) {
-        console.log(this.staffAppraiserForm)
-        this.api.postAppraiser(this.staffAppraiserForm.value)
-        .subscribe({
-          next: (res) => {
-            console.log("log res", res);
-            alert("Appraiser added successfully");
-            this.staffAppraiserForm.reset();
-            this.dialofRef.close('save');
-          },
-          error: (err) => {
-            const errorMessageNewAppraiserSameId: string =  "Duplicate entry"
-            console.log(err.error.message);
-            if(err.error.message.includes(errorMessageNewAppraiserSameId)){
-              alert("This appraiser ID has already been used.");
-            } else {
-              alert('Error while adding appraiser!!');
-            }
-          },
-        });
+        debugger;
+        if(!this.doesAppraiserWithIDExist(this.staffAppraiserForm.value.emp_id)){
+          this.api.postAppraiser(this.staffAppraiserForm.value).subscribe({
+            next: (res) => {
+              alert('Appraiser added successfully');
+              this.staffAppraiserForm.reset();
+              this.dialofRef.close('save');
+            },
+            error: (err) => {
+              console.log(err.error.message);
+                alert('Error while adding appraiser!!');
+            },
+          });
+        } else {
+          alert('That appraiser ID has already been used');
+        }
       }
     } else {
       this.updateAppraiser();
@@ -110,18 +112,29 @@ export class AddMemberDialogueComponent implements OnInit {
   }
 
   updateAppraiser() {
-    console.log("update appraiser", this.staffAppraiserForm.value);
+    console.log('update appraiser', this.staffAppraiserForm.value);
     console.log(this.editData.emp_id);
-    this.api.putAppraiser(this.staffAppraiserForm.value, this.editData.emp_id)
+    this.api
+      .putAppraiser(this.staffAppraiserForm.value, this.editData.emp_id)
       .subscribe({
-        next:(res)=>{
-          alert("Appraiser Profile updated successfully");
+        next: (res) => {
+          alert('Appraiser Profile updated successfully');
           this.staffAppraiserForm.reset;
           this.dialofRef.close('update');
         },
         error: () => {
-          alert("Error while updating the profile");
+          alert('Error while updating the profile');
         },
       });
   }
+
+  doesAppraiserWithIDExist(emp_id: number): boolean {
+    for (const element of this.dataItems) {
+      if (element.emp_id == emp_id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
