@@ -1,4 +1,53 @@
-.addMember{
-  float: right;
-  margin-right: 1em; /* Add a bit of margin between the buttons */
+/* style for container */
+.container {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* style for add member button */
+.addMember {
+  margin-right: 10px;
+}
+
+/* style for filter input */
+mat-form-field {
+  margin-right: 10px;
+}
+
+/* style for table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* style for table header cells */
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+/* style for table body cells */
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* style for table rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* style for table action buttons */
+button[mat-icon-button] {
+  margin-left: 5px;
+}
+
+/* style for no data row */
+.mat-row.mat-no-data td {
+  text-align: center;
+  color: red;
 }
