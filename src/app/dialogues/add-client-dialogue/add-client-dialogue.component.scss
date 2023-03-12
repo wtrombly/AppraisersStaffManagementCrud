@@ -1,0 +1,31 @@
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.form {
+  margin-left: 10%;
+}
+
+.mat-form-field {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.outline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mat-select {
+  width: 100%;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 24px;
+}
