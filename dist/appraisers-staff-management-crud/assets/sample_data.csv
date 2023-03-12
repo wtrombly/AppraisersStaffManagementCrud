@@ -1,0 +1,10 @@
+﻿emp_id,first_name,last_name,street_number,street_name,city,zip_code,license_level,license_number,fha,va,state_id,state_coverage
+951,John,Doe,123,Main St,Anytown,12345,Certified Residential,ABC123,1,1,1,1
+952,Jane,Smith,456,Elm St,Anycity,67890,Certified Residential,DEF456,0,0,2,2
+953,Bob,Johnson,789,Maple St,Someville,23456,Certified Residential,GHI789,1,0,3,3
+954,Alice,Davis,234,Oak St,Othercity,78901,Certified Residential,JKL234,1,1,4,4
+955,Charlie,Brown,567,Pine St,Anotherplace,34567,Certified Residential,MNO567,0,1,5,5
+956,David,Williams,890,Cedar St,Smalltown,45678,Certified Residential,PQR890,1,0,6,6
+957,Karen,Miller,111,High St,Anyplace,56789,Certified Residential,STU111,1,1,7,7
+958,Mike,Jones,222,Low St,Somewhere,67890,Certified Residential,VWX222,0,1,8,8
+959,Emily,Lee,333,First St,Somecity,78901,Certified Residential,YZA333,1,0,9,9
