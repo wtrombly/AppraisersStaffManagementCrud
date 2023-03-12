@@ -89,7 +89,6 @@ export class AddMemberDialogueComponent implements OnInit {
   addAppraiser() {
     if (!this.editData) {
       if (this.staffAppraiserForm.valid) {
-        debugger;
         if(!this.doesAppraiserWithIDExist(this.staffAppraiserForm.value.emp_id)){
           this.api.postAppraiser(this.staffAppraiserForm.value).subscribe({
             next: (res) => {

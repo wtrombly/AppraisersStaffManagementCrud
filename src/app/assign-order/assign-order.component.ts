@@ -4,10 +4,12 @@ import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Appraiser } from '../models/appraiser';
-import { AppraiserService } from '../services/appraiser.service';
+import { Appraiser } from 'server/types/appraiser';
+import { Order } from '../models/order';
+import { OrderService } from '../services/order.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { AppraiserService } from '../services/appraiser.service';
 
 @Component({
   selector: 'app-assign-order',
@@ -24,18 +26,24 @@ export class AssignOrderComponent implements OnInit {
   public messageForSibling!: string;
   public subscription!: Subscription;
 
-  dataItems!: any[];
+  orders: Order[] = [];
+  appraisers: Appraiser[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     @Inject(ApiService) private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
+    private orderService: OrderService,
     private appraiserService: AppraiserService,
     private dialofRef: MatDialogRef<AssignOrderComponent>
   ) {
-    this.appraiserService.getAllAppraisersArray().subscribe((dataItems) => {
-      this.dataItems = dataItems;
-      console.log(dataItems);
+    this.appraiserService.getAllAppraisersArray().subscribe((appraisers) => {
+      this.appraisers = appraisers;
+      console.log(appraisers);
+    });
+    this.orderService.getAllOrdersArray().subscribe((orders) => {
+      this.orders = orders;
+      console.log(this.orders);
     });
   }
 
@@ -77,16 +85,21 @@ export class AssignOrderComponent implements OnInit {
   addOrder() {
     if (!this.editData) {
       if (this.orderForm.valid) {
-        this.api.postOrder(this.orderForm.value).subscribe({
-          next: (res) => {
-            alert('Order added successfully');
-            this.orderForm.reset();
-            this.dialofRef.close('save');
-          },
-          error: () => {
-            alert('Error while adding order!!');
-          },
-        });
+        if (!this.doesOrderWithIDExist(this.orderForm.value.id)) {
+          this.api.postOrder(this.orderForm.value).subscribe({
+            next: (res) => {
+              alert('Order added successfully');
+              this.orderForm.reset();
+              this.dialofRef.close('save');
+            },
+            error: (err) => {
+              console.log(err.error.message);
+              alert('Error while adding order!!');
+            },
+          });
+        } else {
+          alert('That order ID has already been used');
+        }
       }
     } else {
       this.updateOrder();
@@ -104,5 +117,14 @@ export class AssignOrderComponent implements OnInit {
         alert('Error while updating the order');
       },
     });
+  }
+
+  doesOrderWithIDExist(id: number): boolean {
+    for (const element of this.orders) {
+      if (element.id == id) {
+        return true;
+      }
+    }
+    return false;
   }
 }

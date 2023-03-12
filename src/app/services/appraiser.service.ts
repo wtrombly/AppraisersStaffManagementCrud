@@ -9,7 +9,7 @@ import {  Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AppraiserService implements OnInit{
+export class AppraiserService {
 
   states = States;
   dataSource!: MatTableDataSource<Appraiser>;
@@ -20,9 +20,6 @@ export class AppraiserService implements OnInit{
 
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
-
-  }
 
   getAllAppraisersArray(): Observable<any[]> {
     let dataItems: any[] = [];
