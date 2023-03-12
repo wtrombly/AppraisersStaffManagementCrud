@@ -4,6 +4,8 @@ import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Client } from 'server/types/client';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-add-client-dialogue',
@@ -18,12 +20,20 @@ export class AddClientDialogueComponent implements OnInit {
   statesFormControl = new FormControl('');
   multipleSelectList = States;
 
+  clients: Client[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     @Inject(ApiService) private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
+    private clientService: ClientService,
     private dialofRef: MatDialogRef<AddClientDialogueComponent>
-  ) {}
+  ) {
+    this.clientService.getAllClientsArray().subscribe((clients) => {
+      this.clients = clients;
+      console.log(this.clients);
+    });
+  }
 
   ngOnInit(): void {
     this.clientForm = this.formBuilder.group({
@@ -69,25 +79,26 @@ export class AddClientDialogueComponent implements OnInit {
     }
   }
 
+
   addClient() {
     if (!this.editData) {
-      debugger;
-      console.log("addClient has been called");
       if (this.clientForm.valid) {
-        console.log(this.clientForm);
-        this.api.postClient(this.clientForm.value).subscribe({
-          next: (res) => {
-            console.log('log res', res);
-            alert('Client added successfully');
-            this.clientForm.reset();
-            this.dialofRef.close('save');
-          },
-          error: () => {
-            console.error();
-
-            alert('Error while adding client!!');
-          },
-        });
+        debugger;
+        if (!this.doesClientWithIDExist(this.clientForm.value.client_id)) {
+          this.api.postClient(this.clientForm.value).subscribe({
+            next: (res) => {
+              alert('Client added successfully');
+              this.clientForm.reset();
+              this.dialofRef.close('save');
+            },
+            error: (err) => {
+              console.log(err.error.message);
+              alert('Error while adding client!!');
+            },
+          });
+        } else {
+          alert('That client ID has already been used');
+        }
       }
     } else {
       this.updateClient();
@@ -111,8 +122,12 @@ export class AddClientDialogueComponent implements OnInit {
       });
   }
 
-  
-
-
-
+  doesClientWithIDExist(client_id: number): boolean {
+    for (const element of this.clients) {
+      if (element.client_id == client_id) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
