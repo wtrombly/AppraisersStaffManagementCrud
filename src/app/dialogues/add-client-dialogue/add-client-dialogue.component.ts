@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Client } from 'server/types/client';
-import { ClientService } from '../services/client.service';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-add-client-dialogue',

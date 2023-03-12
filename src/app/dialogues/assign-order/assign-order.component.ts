@@ -5,11 +5,11 @@ import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Appraiser } from 'server/types/appraiser';
-import { Order } from '../models/order';
-import { OrderService } from '../services/order.service';
+import { Order } from '../../models/order';
+import { OrderService } from '../../services/order.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { AppraiserService } from '../services/appraiser.service';
+import { AppraiserService } from '../../services/appraiser.service';
 
 @Component({
   selector: 'app-assign-order',

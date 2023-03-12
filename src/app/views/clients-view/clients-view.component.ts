@@ -1,12 +1,12 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { States } from '../models/states';
-import { AddClientDialogueComponent } from '../add-client-dialogue/add-client-dialogue.component';
-import { Client } from '../models/client';
+import { States } from '../../models/states';
+import { AddClientDialogueComponent } from '../../dialogues/add-client-dialogue/add-client-dialogue.component';
+import { Client } from '../../models/client';
 
 @Component({
   selector: 'app-clients-view',

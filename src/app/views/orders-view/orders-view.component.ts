@@ -1,14 +1,14 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Order } from '../models/order';
-import { ApiService } from '../services/api.service';
+import { Order } from '../../models/order';
+import { ApiService } from '../../services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { States } from '../models/states';
-import { AssignOrderComponent } from '../assign-order/assign-order.component';
+import { States } from '../../models/states';
+import { AssignOrderComponent } from '../../dialogues/assign-order/assign-order.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AppraiserService } from '../services/appraiser.service';
-import { Appraiser } from '../models/appraiser';
+import { AppraiserService } from '../../services/appraiser.service';
+import { Appraiser } from '../../models/appraiser';
 
 @Component({
   selector: 'app-orders-view',

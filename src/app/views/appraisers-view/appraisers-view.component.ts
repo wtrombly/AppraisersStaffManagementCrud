@@ -1,13 +1,13 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { States } from '../models/states';
-import { Appraiser } from '../models/appraiser';
-import { AssignOrderComponent } from '../assign-order/assign-order.component';
-import { AddMemberDialogueComponent } from '../add-member-dialogue/add-member-dialogue.component';
+import { States } from '../../models/states';
+import { Appraiser } from '../../models/appraiser';
+import { AssignOrderComponent } from '../../dialogues/assign-order/assign-order.component';
+import { AddMemberDialogueComponent } from '../../dialogues/add-member-dialogue/add-member-dialogue.component';
 
 @Component({
   selector: 'app-appraisers-view',

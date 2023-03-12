@@ -4,8 +4,8 @@ import { States } from 'src/app/models/states';
 import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AppraiserService } from '../services/appraiser.service';
-import { Appraiser } from '../models/appraiser';
+import { AppraiserService } from '../../services/appraiser.service';
+import { Appraiser } from '../../models/appraiser';
 
 @Component({
   selector: 'app-add-member-dialogue',

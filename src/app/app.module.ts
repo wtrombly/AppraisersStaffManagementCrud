@@ -14,17 +14,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddMemberDialogueComponent } from './add-member-dialogue/add-member-dialogue.component';
+import { AddMemberDialogueComponent } from './dialogues/add-member-dialogue/add-member-dialogue.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { AssignOrderComponent } from './assign-order/assign-order.component';
-import { OrdersViewComponent } from './orders-view/orders-view.component';
+import { AssignOrderComponent } from './dialogues/assign-order/assign-order.component';
+import { OrdersViewComponent } from './views/orders-view/orders-view.component';
 import { Routes } from '@angular/router';
-import { AppraisersViewComponent } from './appraisers-view/appraisers-view.component';
-import { ClientsViewComponent } from './clients-view/clients-view.component';
-import { AddClientDialogueComponent } from './add-client-dialogue/add-client-dialogue.component';
+import { AppraisersViewComponent } from './views/appraisers-view/appraisers-view.component';
+import { ClientsViewComponent } from './views/clients-view/clients-view.component';
+import { AddClientDialogueComponent } from './dialogues/add-client-dialogue/add-client-dialogue.component';
 
 
 
